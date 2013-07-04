@@ -8,7 +8,7 @@
 * https://github.com/ros-perception/pcl_conversions
 
 ## 3rd Party conversion
-__TODO:__ Add rename or toROSMSg and conversions.h move
+__TODO:__ Add rename from/toROSMSg and conversions.h move
 remove_ros_3rdparty.sh
 
     #!/bin/bash
