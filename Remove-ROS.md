@@ -14,9 +14,9 @@ To make it safe to mix PCL and ROS library- and include- paths, the following ch
 
 * The namespaces sensor_msgs and std_msgs no longer exist. Use the pcl namespace
 * PointCloud2 -> PCLPointCloud2, Image -> PCLImage, PointField -> PCLPointField, Header -> PCLHeader
-* The include paths reflect the new conventions. i.e., #include <std_msgs/Header.h> -> #include <pcl/PCLHeader.h>
+* The include paths reflect the new conventions. i.e., #include \<std_msgs/Header.h\> -> #include \<pcl/PCLHeader.h\>
 * Conversion functions no longer reference ROS. toROSMsg -> toPCLPointCloud2, fromROSMsg -> fromPCLPointCloud2
-* Conversion functions are now located in the pcl namespace. #include <pcl/ros/conversions.h> -> #include <pcl/conversions.h>
+* Conversion functions are now located in the pcl namespace. #include \<pcl/ros/conversions.h\> -> #include \<pcl/conversions.h\>
 * USE_ROS is deprecated -- your code should operate as if USE_ROS were set to false. E.g., PCLHeader.stamp is always an unsigned long.
 
 To help with the migration process, you can use the following interactive script to do all the replacements. Replace DIFF_CMD and EDIT_CMD with your favorite diff and editing tools, and run
