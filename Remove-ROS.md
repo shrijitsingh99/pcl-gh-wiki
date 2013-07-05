@@ -47,6 +47,10 @@ PATTERNS="${PATTERNS} toROSMsg:toPCLPointCloud2 fromROSMsg:fromPCLPointCloud2"
 PATTERNS="${PATTERNS} pcl\/ros\/conversions.h:pcl\/conversions.h"
 
 CFILES=`find ${PROJECT_ROOT} -regextype posix-egrep -regex '.*\.h$|.*\.hpp$|.*\.c$|.*\.cpp$'`
+if [ "${CFILES}" == "" ]; then
+  echo "No C files found"
+  exit 1
+fi
 
 for PATTERN in $PATTERNS; do
   OLD=`echo ${PATTERN} | sed "s/:.*//g"`
