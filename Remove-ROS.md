@@ -8,7 +8,8 @@
 * https://github.com/ros-perception/pcl_conversions
 
 ## 3rd Party conversion
-__TODO:__ Add ~~rename from/toROSMSg~~ and conversions.h move
+__TODO:__ Add ~~rename from/toROSMSg~~ and ~~conversions.h move~~
+
 remove_ros_3rdparty.sh
 
 ```bash
@@ -30,6 +31,8 @@ PATTERNS="sensor_msgs:pcl std_msgs:pcl"
 PATTERNS="${PATTERNS} PointField:PCLPointField PointCloud2:PCLPointCloud2 Image:PCLImage Header:PCLHeader"
 #Functions
 PATTERNS="${PATTERNS} toROSMsg:toPCLPointCloud2 fromROSMsg:fromPCLPointCloud2"
+#Moved files
+PATTERNS="${PATTERNS} pcl\/ros\/conversions.h:pcl\/conversions.h"
 
 CFILES=`find ${PROJECT_ROOT} -regextype posix-egrep -regex '.*\.h$|.*\.hpp$|.*\.c$|.*\.cpp$'`
 
