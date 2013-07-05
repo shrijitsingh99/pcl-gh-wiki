@@ -48,8 +48,8 @@ for PATTERN in $PATTERNS; do
       cp ${f} ${tmpfile}
     fi
     sed -i "s/${OLD}/${NEW}/g" ${tmpfile}
-    sed -i "s/\([a-zA-Z0-9_]\)${NEW}/\1${OLD}/g" ${tmpfile} #fix broken prefixes
-    sed -i "s/${NEW}\([a-zA-Z0-9_]\)/${OLD}\1/g" ${tmpfile} #fix broken suffixes
+    sed -i "s/\([a-zA-Z0-9_]\)${NEW}/\\1${OLD}/g" ${tmpfile} #fix broken prefixes
+    sed -i "s/${NEW}\([a-zA-Z0-9_]\)/${OLD}\\1/g" ${tmpfile} #fix broken suffixes
     sed -i "s/_CHANGEDWITHSED//g" ${tmpfile}
   done
 done
