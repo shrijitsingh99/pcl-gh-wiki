@@ -13,7 +13,7 @@ __TODO:__ Add ~~rename from/toROSMSg~~ and ~~conversions.h move~~
 To help with the migration process, you can use the following interactive script. Replace DIFF_CMD and EDIT_CMD with your favorite diff and editing tools, and run
 
 ```bash
-./remove_ros_3rdparty.sh path/to/my/project
+./remove_ros_3rdparty.bash path/to/my/project
 ```
 
 This will only modify files once you've explicitly accepted the diffs with "(y)". Til then, the proposed changes are stored in .tomerge files. To break out of this, simply Ctrl+C and run
@@ -22,7 +22,7 @@ This will only modify files once you've explicitly accepted the diffs with "(y)"
 find path/to/my/project -name "*.tomerge" | xargs rm
 ```
 
-remove_ros_3rdparty.sh
+remove_ros_3rdparty.bash
 
 ```bash
 #!/bin/bash
