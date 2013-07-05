@@ -24,7 +24,7 @@ DIFF_CMD="diff" #input your favorite diff viewer. Examples:
 EDIT_CMD="vim" #input your favorite editor
 
 # Use sed to find and replace classes and namespaces
-PATTERNS="sensor_msgs:pcl std_msgs:pcl PointField:PCLPointField PointCloud2:PCLPointCloud2 Image:PCLImage Header:PCLHeader"
+PATTERNS="sensor_msgs:pcl std_msgs:pcl PointField:PCLPointField PointCloud2:PCLPointCloud2 Image:PCLImage Header:PCLHeader toROSMsg:toPointCloud2 fromROSMsg:fromPointCloud2"
 
 CFILES=`find ${PROJECT_ROOT} -regextype posix-egrep -regex '.*\.h$|.*\.hpp$|.*\.c$|.*\.cpp$'`
 
