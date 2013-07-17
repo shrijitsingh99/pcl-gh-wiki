@@ -5,10 +5,10 @@
 * https://github.com/ros-perception/perception_pcl/issues/21
 
 ## ROS conversions
+* http://www.ros.org/wiki/hydro/Migration
 * https://github.com/ros-perception/pcl_conversions
 
 ## 3rd Party conversion
-__TODO:__ Add ~~rename from/toROSMSg~~ and ~~conversions.h move~~
 
 To make it safe to mix PCL and ROS library- and include- paths, the following changes have been made:
 
