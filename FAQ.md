@@ -26,7 +26,7 @@ while (!viewer->wasStopped())
 ```
 to make use of the Qt main event loop for processing the viewer events.
 
-# Q: I want to use `pcl::NormalEstimationOMP` but setting the number of threads/cores via `setNumberOfThreads` doesn't seem to work.*
+## Q: I want to use `pcl::NormalEstimationOMP` but setting the number of threads/cores via `setNumberOfThreads` doesn't seem to work.*
 
 A: Try adding the `openmp` flag to your compiler, e.g.:
 
