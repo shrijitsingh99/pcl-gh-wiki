@@ -77,12 +77,12 @@ apt-get install language-pack-de
 
 ## How to make a release
 
-# make sure you update the **PCL_VERSION** variable in the `CMakeLists.txt` of the branch that you're trying to release from
-# make sure all the unit tests pass for all platforms (check `build.pointclouds.org` and set up custom tests)
-# write up the Changelist to http://dev.pointclouds.org/projects/pcl/wiki/ChangeList
-# tag the release in svn, e.g.:
+* make sure you update the **PCL_VERSION** variable in the `CMakeLists.txt` of the branch that you're trying to release from
+* make sure all the unit tests pass for all platforms (check `build.pointclouds.org` and set up custom tests)
+* write up the Changelist to http://dev.pointclouds.org/projects/pcl/wiki/ChangeList
+* tag the release in svn, e.g.:
 ```
 git tag <tagname>
 ```
-# send an e-mail to the list (pcl-users` and pcl-developers`)
-# post a news announcement on pointclouds.org
+* send an e-mail to the list (pcl-users` and pcl-developers`)
+* post a news announcement on pointclouds.org
