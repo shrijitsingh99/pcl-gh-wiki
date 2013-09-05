@@ -1,6 +1,6 @@
 # MacOSX
 
-# Q: Compiler cannot find GL include files*
+## Q: Compiler cannot find GL include files*
 
 A:
 `error: GL/gl.h: No such file or directory
@@ -10,7 +10,7 @@ You have probably installed GLEW using homebrew or similar, same as in issue #46
 The workaround is to install GLEW with macports (it does not have any dependencies => just download and install macports and `sudo port install glew`) OR do a custom cmake configuration and point it manually to the location of GL/GLEW in the current system.
 
 
-# Q: I am using a Kinect or Asus camera and the alignment of the RGB and depth images is off (i.e., there is a visible offset between the 3D points and the colors when I look at the cloud in `pcd_viewer`).*
+## Q: I am using a Kinect or Asus camera and the alignment of the RGB and depth images is off (i.e., there is a visible offset between the 3D points and the colors when I look at the cloud in `pcd_viewer`).*
 As in the following image:
 !rgb_depth_alignment_problems.png!
 
