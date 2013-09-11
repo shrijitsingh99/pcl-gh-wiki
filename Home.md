@@ -2,6 +2,7 @@
 
 * [[FAQ]]
 * [[MacOS]]
+* [[Overview-and-Comparison-of-Features]]
 
 # Releases
 
