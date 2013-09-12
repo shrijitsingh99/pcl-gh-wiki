@@ -46,7 +46,7 @@ The PFH extends the previous work on Surflet-Pair-Relation Histograms (Wahl et. 
 * The loop regards pairs of two points in _Pik_, say p1 and p2. The point whose normal has the smaller angle to the vector _p1-p2_ is the source point _ps_, the other one is the target point _pt_.   
 * Four features are calculated which together express the mean curvature at the target point _pt_. Those are combined and put into the equivalent histogram bin. For further details on the feature calculation see the original paper: http://www.willowgarage.com/papers/learning-informative-point-classes-acquisition-object-model-maps
 
-![PFH](http://dev.pointclouds.org/attachments/download/1191/pfh.PNG)
+![PFH](images/f_pfh.png)
 
 ### Short Overview
 1. Create normals for all points in _P_ 
@@ -78,7 +78,7 @@ As the FPFH is derived from the PFH it works a lot alike. But there are some opt
 * The last step is new: To recompensate the "lost" connections the neighbours' SPFHs are added to _Pi_'s SPFH according to their spatial distance. 
 For further details on the feature calculation see the original paper: http://files.rbrusu.com/publications/Rusu09ICRA.pdf
 
-![FPFH](http://dev.pointclouds.org/attachments/download/1189/fpfh.PNG)
+![FPFH](images/f_fpfh.png)
 
 ### Short Overview
 
@@ -107,7 +107,7 @@ The VFH extends the Fast Point Feature Histogram (FPFH).
 * Add the two histograms together.
 * For further details on the feature calculation see the original paper: http://www.willowgarage.com/sites/default/files/Rusu10IROS.pdf
 
-![VFH](http://dev.pointclouds.org/attachments/download/1195/vfh.png)
+![VFH](images/f_vfh.png)
 
 ### Short Overview
 1. Estimate the centroid and its normal in the point cloud. Calculate the normalized vector _vc_ between the viewpoint and the viewpoint.
@@ -134,7 +134,7 @@ The RIFT feature extends SIFT (Lowe).
 * All neighbours of _Pi_ are assigned to a histogram bin according to their distance _d_ < _n_ and gradient angle position _theta_ < _g_ (g denotes the number of gradient bins in the implementation). Theta is the angle between the gradient direction and the vector pointing outwards the circle from the center. 
 * For further details on the feature calculation see the original paper: http://hal.inria.fr/docs/00/54/85/30/PDF/lana_pami_final.pdf
 
-![RIFT](http://dev.pointclouds.org/attachments/download/1193/rift.PNG)
+![RIFT](images/f_rift.png)
 
 ### Short Overview
 1. For each point _Pi_ in _P_ sample all k neighbours around _Pi_.
@@ -161,7 +161,7 @@ The NARF feature extends a few concepts of SIFT (Lowe).
 * Finally the dominant orientation of the patch is calculated to make it invariant against rotations around the normal.
 * For further details on the feature calculation see the original paper: https://www.willowgarage.com/sites/default/files/icra2011_3dfeatures.pdf
 
-![NARF](http://dev.pointclouds.org/attachments/download/1194/narf_cell.png)
+![NARF](images/f_narf_cell.png)
 
 ### Short Overview
 1. For each keypoint _Pi_ in _RI_ sample all neighbours around _Pi_ and transform them into a local coordinate system with _Pi_ being at _O_
@@ -187,7 +187,7 @@ The NARF feature extends a few concepts of SIFT (Lowe).
 * Using these values an imaginary circle with an approximated radius _rc_ can be fitted through the two points (see image). Note that the radius becomes infinite when the two points are located on a plane.
 * As the query point _Pi_ can be part of multiple circles with its neighbours only the minimum and the maximum radius are kept and assigned to _Pi_ as output. The algorithm accepts a maximum radius paramteter above which points will be considered as planar.
 
-![RSD](http://dev.pointclouds.org/attachments/download/1192/rsd.jpg)
+![RSD](images/f_rsd.jpg)
 
 ### Short Overview
 1. For each point _Pi_ in _P_ sample all k neighbours around _Pi_.
@@ -218,7 +218,7 @@ The NARF feature extends a few concepts of SIFT (Lowe).
 * At the end of the loop we end up with a global descriptor containing 10 subhistograms (64 bins each): D2 (IN, OUT, MIXED, ratio), D3 (IN, OUT, MIXED), A3 (IN, OUT, MIXED).
 * Read the entire paper for more information: http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6181760
 
-![ESF](http://dev.pointclouds.org/attachments/download/1190/esf.png)
+![ESF](images/f_esf.png)
 
 ### Short Overview
 1. Start a loop that randomly samples 20,000 points from the point cloud P. Each round sample three points Pri, Prj, Prk.
