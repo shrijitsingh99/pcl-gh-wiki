@@ -21,7 +21,7 @@ Feature Name  |  Supports Texture / Color |  Local / Global / Regional | Best Us
 :------------:|:-------------------------:|:--------------------------:|:-------------:
 PFH           | No                        |  L                         |              
 FPFH          | No                        |  L                         | 2.5D Scans (Pseudo single position range images)
-VFH           | No                        |  G                         |
+VFH           | No                        |  G                         | Object detection with pose estimation
 RIFT          | Yes                       |  L                         | Real world 3D-Scans with no mirror effects. RIFT is vulnerable against flipping.
 RSD           | No                        |  L                         |
 NARF          | No                        |  L                         | 2.5D (Range Images) 
@@ -60,7 +60,7 @@ The PFH extends the previous work on Surflet-Pair-Relation Histograms (Wahl et. 
 
 ### Extends:
 
-The PFH extends the Point Feature Histogram (PFH).
+The FPFH extends the Point Feature Histogram (PFH).
 
 ### Input Format
 * A point cloud consisting of a set of oriented points _P_. Oriented means that all points have a normal _n_. 
@@ -83,7 +83,7 @@ For further details on the feature calculation see the original paper: http://fi
 ### Short Overview
 
 1. Create normals for all points in _P_ 
-2. Estimate features for a point _Pi_ in _P_: The set of k-neighbours in the radius _r_ around the point _Pi_ (_Pik_) is taken. Three features are calculated between two points (only between _Pi_ and it's neighbours!). The corresponding bin is incremented by 1. A simple point feature histogram (SPFH) is generated.
+2. Estimate features for a point _Pi_ in _P_: The set of k-neighbours in the radius _r_ around the point _Pi_ ( _Pik_ ) is taken. Three features are calculated between two points (only between _Pi_ and its neighbours!). The corresponding bin is incremented by 1. A simple point feature histogram (SPFH) is generated.
 3. To reach more points and connections (up to 2 times _r_) the SPFH of the neighbours are added weighted according to their spatial distance as a last step.
 4. The resulting set of histograms can be compared to those of other point clouds in order to find correspondences.
 
