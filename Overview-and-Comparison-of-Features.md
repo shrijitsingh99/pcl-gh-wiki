@@ -21,7 +21,8 @@ Feature Name  |  Supports Texture / Color |  Local / Global / Regional | Best Us
 :------------:|:-------------------------:|:--------------------------:|:-------------:
 PFH           | No                        |  L                         |              
 FPFH          | No                        |  L                         | 2.5D Scans (Pseudo single position range images)
-VFH           | No                        |  G                         | Object detection with pose estimation
+VFH           | No                        |  G                         | Object detection with basic pose estimation
+CVFH          | No                        |  R                         | Object detection with basic pose estimation, detection of partial objects
 RIFT          | Yes                       |  L                         | Real world 3D-Scans with no mirror effects. RIFT is vulnerable against flipping.
 RSD           | No                        |  L                         |
 NARF          | No                        |  L                         | 2.5D (Range Images) 
@@ -113,6 +114,32 @@ The VFH extends the Fast Point Feature Histogram (FPFH).
 1. Estimate the centroid and its normal in the point cloud. Calculate the normalized vector _vc_ between the viewpoint and the viewpoint.
 2. For all points calculate the angle between their normal and _vc_.
 3. Estimate the FPFH signature for the centroid with all remaining points set as neighbours.
+
+## CVFH (Clustered Viewpoint Feature Histogram)
+
+### Category:
+* Regional
+
+### Extends:
+The CVFH extends the Viewpoint Point Feature Histogram (VFH).
+
+### Input Format
+* A point cloud consisting of a set of oriented points _P_. Oriented means that all points have a normal _n_. 
+* **This feature does not make use of color information.**
+
+### How it works:
+* The result of computing the point and normal centroid for the entire cloud can be entirely different once points are missing due to occlusion and sensor limitations. That's why VFH descriptors turn out entirely different once essential points are missing from a cloud.
+* CVFH creates stable regions (clusters). From the point cloud _P_ a new cluster _Ci_ is started from a random point _Pr_ that hasn't been assigned to any cluster yet. Every point _Pi_ in _P_ is assigned to that cluster if there exists a point _Pj_ in _Ci_ so that their normals are similiar and they are in a direct neighbourhood (compare angle and distance thresholds). Clusters with too few points are rejected.
+* Compute the VFH on each cluster.
+* Add a shape distribution quotient to each histogram that expresses how the points are distributed around the centroid.
+* For further details on the feature calculation see the original paper: http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6130296
+
+![VFH](http://picload.org/image/ooclcrg/cvfh.jpg)
+
+### Short Overview
+1. Subdivide the point cloud into clusters (stable regions) of neighbouring points with similiar normals.
+2. Calculate the VFH for each cluster.
+3. Add the shape distribution component (SDC) to each histogram.
 
 ## RIFT (Rotation-Invariant Feature Transform)
 
