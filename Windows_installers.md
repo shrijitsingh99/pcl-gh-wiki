@@ -30,7 +30,7 @@ The script supports :
 
 ## Instructions
 
-* unzip attachment:SuperBuild.zip in some folder, say C:\SuperBuild
+* unzip attachment:[SuperBuild.zip](http://dev.pointclouds.org/attachments/download/805/SuperBuild.zip) in some folder, say C:\SuperBuild
 * Open CMake gui, and configure it as if you are building a CMake based project :
   - Where is my source code : C:\SuperBuild
   - Where to build binaries : C:\SuperBuild\build
