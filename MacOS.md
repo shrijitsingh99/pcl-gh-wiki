@@ -1,6 +1,9 @@
 # MacOSX
 
-## Q: Compiler cannot find GL include files*
+## Q: I want to use PCL in Paraview but I can't find the VTK in Paraview.
+
+A:
+
 
 A:
 `error: GL/gl.h: No such file or directory
