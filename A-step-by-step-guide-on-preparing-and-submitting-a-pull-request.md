@@ -47,23 +47,16 @@ project:
    But you don't always have to squash &mdash; it is fine for a pull request to
    contain multiple commits when there is a logical reason for the separation.
 
-5. Locally merge (or rebase) the upstream development branch into your topic
-   branch:
-
-   ```bash
-   git pull [--rebase] upstream master
-   ```
-
-6. Push your topic branch up to your fork:
+5. Push your topic branch up to your fork:
 
    ```bash
    git push origin <topic-branch-name>
    ```
 
-7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+6. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
     with a clear title and description.
 
-8. After your Pull Request is away, you might want to get yourself back onto
+7. After your Pull Request is away, you might want to get yourself back onto
    `master` and delete the topic branch:
 
    ```bash
