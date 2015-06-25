@@ -16,6 +16,8 @@ A: $ sudo easy_install -U sphinxcontrib-doxylink
 
 (if you get an: error: command easy_install not found, do this: sudo apt-get install python-setuptools*)
 
+(Quick note: If the problem persists, sphinx may be using a version of python for which doxylink is not installed - to find out which `sphinx-build` binary is being used, use `ccmake` and enter the advanced mode and look for `SPHINX_EXECUTABLE`. If you look at the top of that executable you can see which version of Python it is using)
+
 ## Q : Code builds on linux and mac and not on windows and gives errors with template arguments.
 
 Line : void convolve (PointCloud<PointT> &output);
