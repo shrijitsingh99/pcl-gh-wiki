@@ -54,3 +54,18 @@ So, your `SamplesConfig.xml` should look like this:
 
 Kinect works only with RegistrationType 2.
 Asus works only with RegistrationType 1.
+
+## Q: I can´t get pcl working with homebrew according to the description in the
+tutorial on the website.
+
+A:
+
+A:
+`/bin/sh: -c: line 0: syntax error '('`
+`/bin/sh: -c: line 0: `/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ ...`
+
+
+You have another version than the one specified in the tutorial which specifies
+1.3. run `brew uninstall pcl` and run `brew install pcl --HEAD` and the change
+the line `find_package(PCL 1.3 REQUIRED COMPONENTS common io)` in CMakeList.txt
+to `find_package(PCL 1.8 REQUIRED COMPONENTS common io)`.
