@@ -104,7 +104,7 @@ The VFH extends the Fast Point Feature Histogram (FPFH).
 * Calculate the centroid _pc_ of the point cloud and its normal _nc_. Calculate the vector between the viewpoint and the centroid _vc_ and normalize it.
 * The VFH consists of two components: A viewpoint component and an extended FPFH component.
 * To map the viewpoint component iterate over all points in _P_ and calculate the angle between their normal and _vc_. Increment the corresponding histogram bin.
-* For the viewpoint component simply calculate the FPFH at the centroid _pc_ setting the entire surrounding point cloud _P_ as neighbours.
+* For the extended FPFH component simply calculate the FPFH at the centroid _pc_ setting the entire surrounding point cloud _P_ as neighbours.
 * Add the two histograms together.
 * For further details on the feature calculation see the original paper: http://www.willowgarage.com/sites/default/files/Rusu10IROS.pdf
 
