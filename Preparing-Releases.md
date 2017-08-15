@@ -1,7 +1,7 @@
 
 # Shipping Binaries
 ## Mac OSX
-Ship only modules enabled by default. Assume the only existing optionals: existence of VTK and OpenGL support
+Ship only modules enabled by default. Assume only the following optionals: existence of VTK and OpenGL support
 
 * Go to CMakeLists.txt and comment out all section regarding RPATH setup (we should allow this to be specified with CMAKE).
 * Configure
