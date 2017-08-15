@@ -26,5 +26,5 @@ $ cmake .. -DCPACK_GENERATOR="TBZ2" \
            -DWITH_QT=OFF \
            -DWITH_RSSDK=OFF \
            -DWITH_VTK=ON
-$ make -j install
+$ make -j package
 # and pray your system doesn't run out of memory
