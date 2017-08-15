@@ -14,7 +14,7 @@
 
 * [[Android]]
 * [[FAQ_devel]]
-* [[Preparing-Releases]]
+* [[Preparing Releases]]
 * [[MacOS_dmg]]
 * [[QT_installers]]
 * [[Windows_installers]]
