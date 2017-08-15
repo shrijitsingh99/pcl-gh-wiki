@@ -6,7 +6,8 @@ Ship only modules enabled by default. Assume only the following optionals: exist
 * Go to CMakeLists.txt and comment out all section regarding RPATH setup (we should allow this to be specified with CMAKE).
 * Configure
 ```shell
-$ cmake .. -DCMAKE_INSTALL_PREFIX=./release \
+$ cmake .. -DCPACK_GENERATOR="TBZ2" \
+           -DCPACK_PACKAGE_FILE_NAME="pcl-1.x.x-darwin"
            -DCMAKE_BUILD_TYPE=Release \
            -DPCL_ENABLE_SSE=OFF \
            -DWITH_CUDA=OFF \
