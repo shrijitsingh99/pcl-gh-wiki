@@ -13,21 +13,25 @@ project:
    git remote add upstream https://github.com/PointCloudLibrary/pcl.git
    ```
 
-2. If you cloned a while ago, get the latest changes from upstream:
+2. Run the unit tests.  If you added new functionality, extend existing test cases or add new ones.
+   To build them, you might find it necessary to install gtest (Google C++ Testing Framework) and
+   run cmake with ```-DBUILD_global_tests=ON```.
+
+3. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
    git checkout master
    git pull upstream master
    ```
 
-3. Create a new topic branch (off the main project development branch) to
+4. Create a new topic branch (off the main project development branch) to
    contain your feature, change, or fix:
 
    ```bash
    git checkout -b <topic-branch-name>
    ```
 
-4. Commit your changes in logical chunks. For any Git project, some good rules
+5. Commit your changes in logical chunks. For any Git project, some good rules
    for commit messages are
    * the first line is commit summary, 50 characters or less,
    * followed by an empty line
@@ -47,16 +51,16 @@ project:
    But you don't always have to squash &mdash; it is fine for a pull request to
    contain multiple commits when there is a logical reason for the separation.
 
-5. Push your topic branch up to your fork:
+6. Push your topic branch up to your fork:
 
    ```bash
    git push origin <topic-branch-name>
    ```
 
-6. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
     with a clear title and description.
 
-7. After your Pull Request is away, you might want to get yourself back onto
+8. After your Pull Request is away, you might want to get yourself back onto
    `master` and delete the topic branch:
 
    ```bash
