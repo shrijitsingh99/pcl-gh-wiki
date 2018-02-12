@@ -1,3 +1,19 @@
+# Task list
+- [ ] Go through all PR for the milestone
+- [ ] Update Changelog
+- [ ] Start a release branch
+- [ ] (If needed) Revert whatever unintentional API/ABI breakage that might have occurred in the release branch
+- [ ] Bump version to x.x.x in CMakeLists.txt
+- [ ] Find replace all occurrences of x.x.x.99 CMake requirements in the tutorials and examples
+- [ ] Try to build and test on all relevant platforms
+- [ ] Finalize changelog and fix the release date
+- [ ] Tag
+- [ ] Remove the release branch
+- [ ] Add binaries to the GitHub release page.
+- [ ] Add link doc link to tutorials page
+- [ ] Bump version to x.x.x-dev in CMakeLists.txt
+- [ ] Send announcements to the mailing lists
+- [ ] Throw a party!
 
 # Shipping Binaries
 ## Mac OSX
