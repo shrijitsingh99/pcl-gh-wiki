@@ -15,6 +15,10 @@
 - [ ] Send announcements to the mailing lists
 - [ ] Throw a party!
 
+# Creating the Change Log
+
+(Placeholder)
+
 # Shipping Binaries
 ## Mac OSX
 Ship only modules enabled by default. Assume only the following optionals: existence of VTK and OpenGL support
