@@ -46,6 +46,7 @@ optional arguments:
                        file. (Defaults to 'pr_info.json')
   --from-cache [FILE]  Uses a previously generated PR info JSON cache file to
                        generate the change log. (Defaults to 'pr_info.json')```
+```
 
 # Shipping Binaries
 ## Mac OSX
