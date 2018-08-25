@@ -17,7 +17,35 @@
 
 # Creating the Change Log
 
-(Placeholder)
+Tool written for Python 3.
+
+
+```
+$ python3 change_log.py -h
+usage: change_log.py [-h] [--username USERNAME] [--cache [FILE] | --from-cache
+                     [FILE]]
+                     start [end]
+
+Generate a change log between two revisions. Check
+https://github.com/PointCloudLibrary/pcl/wiki/Preparing-Releases#creating-the-
+change-log for some additional examples on how to use the tool.
+
+positional arguments:
+  start                The start (exclusive) revision/commit/tag to generate
+                       the log.
+  end                  The end (inclusive) revision/commit/tag to generate the
+                       log. (Defaults to HEAD)
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --username USERNAME  GitHub Account user name. If specified it will perform
+                       requests with the provided credentials. This is often
+                       required in order to overcome GitHub API's request
+                       limits.
+  --cache [FILE]       Caches the PR info extracted from GitHub into a JSON
+                       file. (Defaults to 'pr_info.json')
+  --from-cache [FILE]  Uses a previously generated PR info JSON cache file to
+                       generate the change log. (Defaults to 'pr_info.json')```
 
 # Shipping Binaries
 ## Mac OSX
