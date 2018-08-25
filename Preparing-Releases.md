@@ -68,9 +68,9 @@ $ python3 change_log.py --cache pr_info.json  pcl-1.8.1 pcl-1.9.0
 ```
 To later read from the cache file simply pass the following argument `--from-cache` and the location to the file.
 ```
-$ python3 change_log.py --from-cache pr_info.json <start>
+$ python3 change_log.py --from-cache pr_info.json pcl-1.8.1
 ```
-If the cache is used no request are made to GitHub. In theory you wouldn't need to specify `<start>` since the cache already holds the start and end revisions used to generate the cache. Anything you specify `<start>` will be overridden by whatever was saved in the cache.  Unfortunately I'm yet to find a good way to overcome this limitation. 
+If the cache is used no request are made to GitHub. In theory you wouldn't need to specify `pcl-1.8.1` since the cache already holds the start and end revisions used to generate the cache. Anything you specify on that positional argument will be overridden by whatever was saved in the cache.  Unfortunately I'm yet to find a good way to overcome this limitation.
 
 
 ### Printing Usage
