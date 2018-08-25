@@ -17,8 +17,64 @@
 
 # Creating the Change Log
 
-Tool written for Python 3.
+Change log generation used to be a very tedious tasks which often delayed the release process. Upon preparing the 1.9.0 release, we identified the need to automate this procedure and the `change_log.py` tool was born. This is a tool compatible with Python 3.5+ which generates a markdown Change Log between two revisions.
 
+The generated log lists the most important changes first, like new features and API changes among others, and then proceeds to provided an extensive change list for each individual module.
+
+In order to generate a meaningful change log, we make use of Pull Requests' (PR) metadata such as its id, title and labels. This cleared the need of generating a manual change log at the expense of a higher house keeping effort, since we now need to ensure that each PR has accurate labels. There are two important label groups with the following prefixes: `module: ` and `changes: `.
+
+- `module: ` Module tags provide an organization of PRs in terms of the libraries modules. We also include some extra labels which are not exactly library modules per se, for instance things related to CI and CMake, but that are convenient to appear in their own section in the produced log.
+- `changes: ` Changes tags are used to flag important API/ABI/behavior changes introduced by PRs.
+
+It's also important to mention the `new feature` label, which arguably should belong to be also prefixed with `changes: ` but currently isn't. Regardless of that the label is also parsed and new features are reported in the important changes summary.
+
+There's currently no support for the `platform: ` although it will be extended in the future if the need for it arises.
+
+## Dependencies
+
+The tool has a two 3rd party dependencies:
+- `git` - it leverages `git log` functionalities to infer pull requests merges between both revisions
+- `requests`- a Python library which simplifies the handling authenticated requests to fetch PR data from GitHub's API. Available through PyPi. [Website](http://docs.python-requests.org/en/master/).
+
+## Usage
+
+### Simple
+
+The most simple way of using the tool is simply invoking
+```
+$ python3 change_log.py pcl-1.8.1 pcl-1.9.0
+```
+This will generate a list with all PRs included in `pcl-1.9.0`, which were not part of `pcl-1.8.1`, effectively creating a change log between both revisions.
+
+The last argument is actually optional. If no end revision is specified the tool will silently default to the repo's `HEAD`.
+
+### Authenticated Request
+
+`change_log.py` leverages the capabilities of the [GitHub REST API](https://developer.github.com/v3/) to fetch all necessary PR information. The API is free to use but imposes a hourly request rate limit for anonymous requests. This limit is too low to allow fetching the usual amount of data required when generating a change log between contiguous PCL releases. Performing user authenticated requests raises this limit but requires a GitHub account. Unless the amount of changes is small, it is likely that the authentication will always be required in order to fetch all necessary data in a single execution of the tool.
+
+To execute `change_log.py` with GitHub authentication pass the additional argument `--username`
+```
+$ python3 change_log.py --username PointCloudLibrary pcl-1.8.1 pcl-1.9.0
+Password for PointCloudLibrary: 
+```
+The script will securely prompt for your GitHub password in order to perform the requests. 
+
+### Caching PR Data
+
+Fetching PR data from GitHub is not exactly slow but also not exactly fast. In conjunction with the request rate restrictions, it made it worthwhile to cache the PR data fetched into a file. This is arguably only relevant for development purposes. Specifying the option `--cache` makes the script serialize all the data to a JSON file.
+
+```
+$ python3 change_log.py --cache pr_info.json  pcl-1.8.1 pcl-1.9.0
+```
+To later read from the cache file simply pass the following arguments
+```
+$ python3 change_log.py --from-cache pr_info.json
+```
+
+
+### Printing Usage
+
+To have access to the full list of options simply invoke 
 
 ```
 $ python3 change_log.py -h
