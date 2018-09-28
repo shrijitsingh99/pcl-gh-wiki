@@ -6,6 +6,7 @@
 - [ ] Bump version to x.x.x in CMakeLists.txt
 - [ ] Find replace all occurrences of x.x.x.99 CMake requirements in the tutorials and examples
 - [ ] Try to build and test on all relevant platforms
+- [ ] Bump version off the release badge in README.md
 - [ ] Finalize changelog and fix the release date
 - [ ] Tag
 - [ ] Remove the release branch
