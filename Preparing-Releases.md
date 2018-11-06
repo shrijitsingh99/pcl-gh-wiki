@@ -1,3 +1,9 @@
+# Table of Contents
+
+- [Task list](#task-list)
+- [Creating the Change Log](#creating-the-change-log)
+- [Shipping Binaries](#shipping-binaries)
+
 # Task list
 - [ ] Go through all PR for the milestone
 - [ ] Update Changelog
