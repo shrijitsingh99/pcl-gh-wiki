@@ -3,6 +3,7 @@
 - [Task list](#task-list)
 - [Creating the Change Log](#creating-the-change-log)
 - [Shipping Binaries](#shipping-binaries)
+- [Generating Documentation](#generating-documentation)
 
 # Task list
 - [ ] Go through all PR for the milestone
@@ -141,3 +142,33 @@ $ cmake .. -DCPACK_GENERATOR="TBZ2" \
            -DWITH_VTK=ON
 $ make -j package
 # and pray your system doesn't run out of memory
+```
+
+# Generating Documentation
+
+In the steps below replace VERSION with the actual release version.
+
+Check out the release tag, configure, and build documentation:
+
+```shell
+$ git checkout pcl-VERSION
+$ cmake .. -DWITH_DOCS=ON 
+$ make doc
+```
+
+Archive and send to the server:
+
+```shell
+$ cd doc/doxygen
+$ tar -zcf docs.tgz html
+$ scp docs.tgz pointclouds:/var/www/docs.pointclouds.org/
+```
+
+Unpack on the server and edit documentation index page to include a link:
+
+```shell
+$ cd /var/www/docs.pointclouds.org
+$ tar xzf docs.tgz && rm docs.tgz
+$ mv html VERSION
+$ vim /var/www/pointclouds.org/documentation/index.php
+```
