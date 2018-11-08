@@ -17,8 +17,9 @@
 - [ ] Finalize changelog and fix the release date
 - [ ] Tag
 - [ ] Remove the release branch
-- [ ] Add binaries to the GitHub release page.
-- [ ] Add link doc link to tutorials page
+- [ ] Add binaries to the GitHub release page
+- [ ] Send a PR to vcpkg to update package to the new version
+- [ ] Add doc link to tutorials page
 - [ ] Bump version to x.x.x-dev in CMakeLists.txt
 - [ ] Send announcements to the mailing lists
 - [ ] Throw a party!
