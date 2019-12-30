@@ -1,8 +1,9 @@
 # WIP; Dragons be Here
 Inkomplete work and speling errors also frolic with the dragons. There's an old doc [here](http://pointclouds.org/documentation/advanced/pcl2.php#pcl2) discussing future API. I've reproduced the following list below which can help in tracking what has been done already.
 
+## Old list
 <details>
-  <summary><h2>Old list</h2></summary>
+  <summary>Reproduced here</summary>
 
 ### PointCloud
 * [ ] drop templating on point types, thus making `pcl::PointCloud` template free
@@ -361,7 +362,7 @@ Apart from utilizing the horizontal space, fluent interface enable chaining in o
 ```c++
 // not valid PCL code
 const auto result = pcl::FilterOptions().setExtractRemovedIndices(true)
-                    .useAlgorithm(user_input_based_tag).algo().options(user_input_based_options)
+                    .useAlgorithm(user_input_based_tag).options(user_input_based_options)
                     .setInputCloud (cloud).setIndices (indices)
                     .filter (*cloud_filtered).getRemovedIndices (removed_indices).result();
 ```
@@ -372,6 +373,7 @@ Here, the return type changed from `FilterOptions` to `pcl::Filter` to `bool`. T
 
 ## Cons
 * Requires a strict hierarchy and SOLID implementation for each class
+* Logging is problematic in ranges as well as fluent
 
 ### ABI/API break
 * Minor ABI break: Needs additional return value to current `return void` functions, doesn't break API
@@ -384,7 +386,9 @@ Minor to Medium for an integrated upgrade
 None for user
 
 ## Ranges and Co-routines for algorithms
-TODO
+Co-routines can be used effectively with ranges to perform context switch pre-fetching. Ranges in themselves allow algorithms to be lazy with reduced copy. They also provide a simpler to manage API for views or slices or shards, etc. which are currently implemented in PCL using `std::vector<int>` aka indices.
+
+Ranges + co-routines are also an improvement over iterators since they ensure that the code stays in one place instead of being fragmented in 3 different places (iterator increment, decrement, compare). Ranges can also result in cleaner code, specially for pipeline based processing which is a typical use of PCL.
 
 Note:
 * Works best when combined with fluent interface (Pro or Con? 😆)
@@ -392,12 +396,13 @@ Note:
 ### Pros
 * Out-of-the-box lazy execution (saves 10%-30% compute in my personal workloads)
 * Decreased cache misses (reduced Instruction cache misses, no impact on memory cache misses)
-* Faster execution (coroutines allow prefetching in parallel threads to work like magic)
+* Faster execution (co-routines allow pre-fetching in parallel threads to work like magic)
 * Better API, much better than `Iterators`
 
 ### Cons
 * Needs the latest functionality, from latest compilers
 * Breaks away from the algorithm as class concept
+* Logging is problematic in ranges as well as fluent
 
 ### ABI/API break
 Potential Major break
