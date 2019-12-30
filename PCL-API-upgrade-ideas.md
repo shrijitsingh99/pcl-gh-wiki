@@ -80,7 +80,7 @@ Currently, I'm personally involved in upgrading the internals of PCL to use `std
 
 # Current Proposals
 
-| Proposal | Status | Proposer |
+| Proposal | Status | Champion |
 |----|----|----|
 | [Reduce usage of `std::shared_ptr<T>` in the API](Reduce-usage-of-stdshared_ptrT-in-the-API) | ❓ | Community |
 | [Better type for indices](better-type-for-indices) | ❓ | Community and Maintainers |
