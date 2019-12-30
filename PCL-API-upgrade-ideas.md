@@ -189,14 +189,16 @@ std::unique_ptr<Indices> delta_removed;
 
 struct FilterOptions;  // like keepOrganized, extractNegative, etc.
 
+template <template <class T> class Ptr = std::shared_ptr<T>>
 struct CloudDetails {
-std::shared_ptr<pcl::PCLHeader> header;  // shared_ptr needed? it's same as the cloud
-std::shared_ptr<CurrentPointCloud> cloud;
-std::shared_ptr<Tree> acceleration_tree;  // computed lazily
-std::shared_ptr<SmarterIndices> indices;  // computed lazily
+Ptr<pcl::PCLHeader> header;  // shared_ptr needed? it's same as the cloud
+Ptr<CurrentPointCloud> cloud;
+Ptr<Tree> acceleration_tree;  // computed lazily
+Ptr<SmarterIndices> indices;  // computed lazily
 };
 // one cloud for many acceleration data structures
 // one acceleration data structure and cloud for many indices
+using CloudDetails = CloudDetails<>;
 
 struct PointCloud {
 std::shared_ptr<CloudDetails> details;
@@ -323,6 +325,13 @@ This is on top of current dependency on system installed Boost, Eigen, Flann and
 * CMake wizardry required (PoC is ready for header only libraries)
 * Compile times might increase for old compilers (increases in run-time speed (due to coroutines, ranges) and better API might offset them. Needs discussion)
 
+### ABI/API Break
+None, since this is future work
+
+### Effort required
+* Increased quanta in maintenance
+* Additional CMake (very soon PCL will be more CMake and less code 😝)
+
 ### Migration
 None for the users
 
@@ -361,11 +370,40 @@ Here, the return type changed from `FilterOptions` to `pcl::Filter` to `bool`. T
 ## Cons
 * Requires a strict hierarchy and SOLID implementation for each class
 
+### ABI/API break
+* Minor ABI break: Needs additional return value to current `return void` functions, doesn't break API
+* Needs class inheritance rejigged, will break ABI, not API
+
+### Effort Required
+Minor to Medium for an integrated upgrade
+
 ### Migration
-None
+None for user
 
 ## Ranges and Co-routines for algorithms
 TODO
+
+Note:
+* Works best when combined with fluent interface (Pro or Con? 😆)
+
+### Pros
+* Out-of-the-box lazy execution (saves 10%-30% compute in my personal workloads)
+* Decreased cache misses (reduced Instruction cache misses, no impact on memory cache misses)
+* Faster execution (coroutines allow prefetching in parallel threads to work like magic)
+* Better API, much better than `Iterators`
+
+### Cons
+* Needs the latest functionality, from latest compilers
+* Breaks away from the algorithm as class concept
+
+### ABI/API break
+Potential Major break
+
+### Effort Required
+Major
+
+### Migration
+None in sight
 
 ## End-Of-List
 ---
