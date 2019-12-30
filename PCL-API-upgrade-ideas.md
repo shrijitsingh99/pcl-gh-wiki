@@ -73,7 +73,7 @@ This document is a living document and will be updated as and when required. Ple
 ## Requests
 * Please show support for both how valid/invalid a certain proposal is as well as which "flavor" of the proposal is better
 * Please keep the discussions polite and respectful
-* Please refrain from asking questions like "how long it'll take"
+* Please refrain from asking questions like "how much longer will it take"
 
 ## Disclaimer
 Currently, I'm personally involved in upgrading the internals of PCL to use `std::size_t` as the basic type for array indices (and upgrade to using algorithms where possible). I hope the migration ends up being a success, even though `std::size_t` isn't the best type to use, it felt the best candidate at that time. The discussions pointed out several shortcomings and I hope to avoid them in the future with another proposal of mine: `executors`
