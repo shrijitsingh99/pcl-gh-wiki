@@ -295,8 +295,8 @@ Minor to Medium
 ### Migration path
 * Add new functionality using executors
 * Change 
-  * OpenMP classes to use temporary tags to redirect work (not executors right now, being [proposed right now](https://link.springer.com/chapter/10.1007%2F978-3-030-28596-8_22))
-  * CUDA classes to use [stream executors](https://github.com/henline/streamexecutordoc) (tensorflow has implementation of stream executors for CUDA and OpenCL)
+  * OpenMP classes to use temporary tags for redirection (not executors right now, being [proposed right now](https://link.springer.com/chapter/10.1007%2F978-3-030-28596-8_22))
+  * CUDA classes to use temporary tags for redirection, and in future, [stream executors](https://github.com/henline/streamexecutordoc) (tensorflow has implementation of stream executors for CUDA and OpenCL)
 * Deprecate old classes
 
 ## Python API
