@@ -68,6 +68,8 @@ The time of the maintainers is however limited, and as such we need to prioritiz
 * provide a starting place for **fruitful** discussions
 * manage the expectations vs reality
 
+Different proposals can have comflicting implementations, conflicting migration paths even though they could co-exist together. Major API breakage needs to be handled carefully.
+
 This document is a living document and will be updated as and when required. Please note that this is **not a formal document**, and has been created by [Kunal Tyagi] for his personal role as of now. This might change in the future.
 
 ## Requests
@@ -114,10 +116,22 @@ The idea is to keep the second usage of `shared_ptr`. The fist type of usage has
 ### Cons
 * PointCloud may go out-of-scope while the algorithm/tree-query is in progress: Technically *none-of-our-concern* since the user needs to ensure this
 
+### ABI/API Breakage
+* Complete ABI break due to replacement of `std::shared_ptr<T>` with `T*`
+* Minor API break due to deprecation of `setX(const std::shared_ptr<T>&)`
+* Addition of `setX(const T&)` to replace the deprecated `setX` function
+
+### Effort required
+* Touches all major classes
+* (experimental) Could be done using `clang-tidy`
+* slow, large update path, (smaller scale but) similar to the smart pointer upgrades
+
 ### Migration Path
-For the users, copy-and-pin technique removes most of the issues that might arise due to this proposal. This technique is **only required** when 
-* calling PCL functions that take `const std::shared_ptr<T>&`
-* Lifetime of the pointer might be in question
+Made easier due to existence of various `XPtr` typedefs.
+* Simple: replace calls with `var.get()` for variable `var` of type `std::shared_ptr<T>`
+* Slightly convoluted: Copy-and-pin technique removes most of the issues that might arise due to this proposal. This technique is **only required** when
+  * using PCL functions that currently take `const std::shared_ptr<T>&`
+  * Lifetime of the pointer might be in question
 
 If none of this is of concern, then the first line can be skipped
 ```c++
@@ -146,11 +160,23 @@ Follows a best practice
   * `git` sub-tree/sub-module
 * `gsl::index` is just `std::ptrdiff_t` (but there's already `std::ssize_t` so maybe there's a better type out there)
 
+### ABI/API Breakage
+* None for existing internal migration
+* Major API breakage for changing `Indices` from `std::vector<int>` to `std::vector<index_t>`
+
+### Effort Required
+Minor to medium, plit over several phases:
+1. Internal API modification is underway, would need modification from `std::size_t` to `pcl::index_t`
+2. Modification of public API will be faster since it is easily identifiable (function declaration, data members)
+
 ### Migration Path
-None needed. It might help to have a `pcl::index` but that's not the main concern
+Multi-step migration:
+1. Replace `std::vector<int>` with `IndicesVec`
+2. Replace `std::size_t` with `pcl::index_t`
+3. Replace `IndicesVec = std::vector<int>` with `IndicesVec = std::vector<pcl::index_t>`
 
 ### Question
-Is there anyone who has been adversely impacted with `std::size_t` instead of `int`?
+Is there anyone who has been adversely impacted with size increase and cache misses due to `std::size_t` instead of `int`?
 
 ## Combine PointCloud with acceleration data-structures
 Consider the new PointCloud struct to be the following:
@@ -164,6 +190,7 @@ std::unique_ptr<Indices> delta_removed;
 struct FilterOptions;  // like keepOrganized, extractNegative, etc.
 
 struct CloudDetails {
+std::shared_ptr<pcl::PCLHeader> header;  // shared_ptr needed? it's same as the cloud
 std::shared_ptr<CurrentPointCloud> cloud;
 std::shared_ptr<Tree> acceleration_tree;  // computed lazily
 std::shared_ptr<SmarterIndices> indices;  // computed lazily
@@ -197,7 +224,7 @@ cloud_filtered = sor.setExtractRemovedIndices (true).filter (cloud);
 auto options = FilterOptions ().setExtractRemovedIndices (true);
 cloud_filtered = sor.filter (cloud, options);
 ```
-### Benefits
+### Pros
 * Simplifies and integrates the API for algorithms: Just pass the algorithm specific options and this struct (by copy/value/reference?) and get this struct as output
 * Makes it easy to follow guideline: Have a const PointCloud and work on indices
 * Makes it easy to ensure that the acceleration tree and the point cloud are "in sync". (personal anecdote: forgot to update the tree in a video-pipeline)
@@ -208,12 +235,69 @@ cloud_filtered = sor.filter (cloud, options);
 * Copy cost of `shared_ptr` is not zero (or even negligible)
 * Makes it easy to hide cost of updating the tree and indices (can be offset by creating options in the algorithm to make the cost explicit)
 
+### ABI/API Breakage
+* Basic type system: Complete API/ABI break 
+* Algorithm and supporting classes:
+  * Major ABI break
+  * Major API break (in 2 phases: deprecation and removal)
+
+### Effort Required
+* Major
+
+### Migration Path
+Possible (and that's a tough claim)
+1. Add proposed PointCloud under `PtCloud_<T>` or similar name (equivalent to `opencv::Mat_<T>`)
+2. Add functions to algorithm classes to also take in `PtCloud_<T>`
+3. Implicit creation of `PtCloud_<T>` from `std::shared_ptr<PointCloud<T>>`
+  * Conflicts with removal of `std::shared_ptr<T>` from public API
+  * Could coexist if proposed type has explicit pointer types:
+    * `PtCloud_<T, PtrType=T*>` implicit conversion from `T*`
+    * `PtCloud_<T, PtrType=std::shared_ptr<T>>` from `std::shared_ptr<T>`
+4. Rename `PointCloud` to `PointVec`, and set `template <class T> using PointCloud = PointVec<T>;`
+5. Deprecate `PointCloud`
+
 ## `executors` for One-API-for-Algorithms
 Currently, it's not possible to have one algorithm with multiple implementations across OpenMP, GPU, CPU, thread_pool, etc. This can be made possible with executors. Executors are a new concept, as such here's a list of resources:
 * [Nice Library by @chriskohlhoff](https://github.com/chriskohlhoff/executors)
 * [C++ reference](https://en.cppreference.com/w/cpp/algorithm/execution_policy_tag_t)
 
 **TL;DR for laymen**: Adding a "tag" as the first argument can help in using the same class choose the correct implementation. C++ extends this by allowing the "tag" to carry more information about the execution context, such as which thread_pool to use, how many threads, which device, etc.
+
+### Pros
+* Single holding class for algorithms, regardless of platforms
+* Single implementation for most algorithms
+* More executable interfaces: thread_pool, strands, etc., currently unsupported by PCL
+
+### Cons
+* None so far
+
+### ABI/API break
+* None in the beginning. The idea is to extend current API not break it
+* Once deprecated, change the class to original class, and add an executor as first argument
+```c++
+// current
+pcl::NormalEstimationOMP<T1, T2> est;
+est.setViewPoint(vx, vy, vz);
+est.setInputCloud(cloud);
+est.computePointNormal(*normal_cloud, indices, nx, ny, nz, curvature);
+```
+```c++
+// proposed
+pcl::NormalEstimation<T1, T2> est;
+est.setViewPoint(vx, vy, vz);
+est.setInputCloud(cloud);
+est.computePointNormal(pcl::executor::openmp, *normal_cloud, indices, nx, ny, nz, curvature);
+```
+
+### Effort required
+Minor to Medium
+
+### Migration path
+* Add new functionality using executors
+* Change 
+  * OpenMP classes to use temporary tags to redirect work (not executors right now, being [proposed right now](https://link.springer.com/chapter/10.1007%2F978-3-030-28596-8_22))
+  * CUDA classes to use [stream executors](https://github.com/henline/streamexecutordoc) (tensorflow has implementation of stream executors for CUDA and OpenCL)
+* Deprecate old classes
 
 ## Python API
 A Python API has unique challenges for a library which depends heavily on templates like PCL. However, since Python expects higher abstractions than C++, a Python API can tell the maintainers when something needs a "more beautiful syntax".
