@@ -315,8 +315,9 @@ We should consider adding some build dependencies in order to prepare for future
 
 * [GSL](https://github.com/microsoft/GSL): Follow C++ best practices
 * [Abseil](https://github.com/abseil/abseil-cpp): Nifty additional containers, specially for added speed/consistent time usage over stdlib ones, and C++17 features in C++14 compilers
+* [Boost.SafeNumerics](https://github.com/boostorg/safe_numerics): Specify operations with range for compile time checks, available from v1.69
 * [Ranges v3](https://github.com/ericniebler/range-v3): Better algorithms, coming in C++20, C++23
-* [CppCoro](https://github.com/lewissbaker/cppcoro/): C++20 lacks generators, scheduled in C++23
+* [CppCoro](https://github.com/lewissbaker/cppcoro/): (for C++20 only) C++20 lacks generators, scheduled in C++23
 * [Executors](https://github.com/chriskohlhoff/executors): scheduled for C++23
 * **Optional** [Hip](https://github.com/ROCm-Developer-Tools/HIP) or [HipSYCL](https://github.com/illuhad/hipSYCL): GPU code for Nvidia + AMD devices
 
