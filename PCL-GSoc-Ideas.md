@@ -22,10 +22,15 @@
   * (Stretch goal) Compile time reduction on CI using
     * incremental builds
     * compiler caches
+* Improving confidence in builds
+  * Incremental builds on CI
+  * More warnings and sanitizers for CI
+  * Integrate `clang-tidy`, static-analyzers
+  * Increasing test coverage
 
 ### Code Maintenance
 * Refactoring and Modernization (underway)
-* Increasing Test Coverage
+  * Expand ideas here
 
 ### New ideas
 ??
