@@ -1,10 +1,9 @@
 ## Details
 
 * Title: **PCL-RFC-0001: Merit in Old Ideas**
-* Author: [kunaltyagi], [other maintainers](http://pointclouds.org/documentation/advanced/pcl2.php#pcl2)
+* Author: [kunaltyagi](https://github.com/kunaltyagi), [other maintainers](http://pointclouds.org/documentation/advanced/pcl2.php#pcl2)
 * Gitter room: [PointCloudLibrary/PCL-RFC-01](https://gitter.im/PointCloudLibrary/PCL-RFC-01)
 
-[Kunal Tyagi]: https://github.com/kunaltyagi
 ## Motivation
 
 Quite a while ago, a list of changes were suggested for improvements in PCL. That list is reproduced below. It is not meant to be a TODO list but a starting point for future discussions. If any of the ideas has already been implemented, please do inform the authors.
