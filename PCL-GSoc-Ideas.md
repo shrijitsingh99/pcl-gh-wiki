@@ -57,8 +57,11 @@ As PCL has matured, it has discovered missing features: features that are more t
     * Out-of-source PCL-contrib super-module similar to OpenCV-contrib
 
 ### Code Maintenance (`code`)
-1. Refactoring and Modernization (underway)
-    * Expand ideas here
+Old API designs result in greater friction between how developers prefer to use vs how PCL lets developers use the API. Overhauling API used to be difficult but with `libtooling` and `clang-tidy`, it has been made manageable. Some of the ideas for guiding PCL towards a more modern API are:
+1. Refactoring and Modernization
+  * [Better type for indices](https://github.com/PointCloudLibrary/pcl/wiki/PCL-RFC-0002:-Better-type-for-indices)
+  * Fluent style API for algorithms
+  * Extend `format` and `clang-tidy --fix` to other modules
 
 ### New features (`new`)
 PCL is missing a lot of state-of-the-art implementations. Suggestions/implementations of such algorithms are highly welcome since highly performant, cutting edge algorithms are a core component of PCL. Apart from them, the following features are also on the wish-list of PCL:
@@ -71,6 +74,7 @@ PCL is missing a lot of state-of-the-art implementations. Suggestions/implementa
       * [pcl-py](https://github.com/strawlab/python-pcl)
       * [pypcl](https://github.com/davidcaron/pclpy)
     * (Stretch goal) Support different PCL releases and Language versions
+2. [Unified API for PCL algorithms](https://github.com/PointCloudLibrary/pcl/wiki/PCL-RFC-0003:-Unified-API-for-Algorithms)
 
 ## Contact
 For interested students:
