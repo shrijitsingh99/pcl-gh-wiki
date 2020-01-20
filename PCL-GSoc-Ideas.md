@@ -80,7 +80,7 @@ For interested students:
 
 For those interested in becoming mentors:
 * Please note that mentoring and co-mentoring can take a lot of effort from your side (from 10 hours a week or 1 hour a week depending on the project, the student, the problems, etc.)
-* Please announce yourself and your interest in PCL at the [gitter chat](https://gitter.im/PointCloudLibrary/pcl)
+* Please announce yourself and participate in discussions at the [gitter chat](https://gitter.im/PointCloudLibrary/pcl)
 * Feel free to PM existing maintainers/mentors
 * "Teaming up" as co-mentors is an option if you feel you will not be able to be the sole mentor on a project. For projects with existing mentor(s), it is upto them to accept/reject a co-mentor
 
