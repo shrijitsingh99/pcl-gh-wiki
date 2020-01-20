@@ -12,19 +12,22 @@ PCL returns to GSoC after a long hiatus. This year, PCL is looking for contribut
 
 and everything else in between.
 
-### Table of Contents
+## 2020 Idea List
 
-| Name | Skills needed | Difficulty |
+### Table of Contents
+| Name | Skills needed | Technical Difficulty |
 |---|---|---| 
 | [Update outdated Website](#Update-outdated-Website) | JS, CSS, Jekyll | Medium |
-| [Walk through documentation](#Walk-through-documentation-Tutorials-Guides-and-Examples) | Technical writing, Doxygen | Medium |
+| [Walk through documentation](#Walk-through-documentation) | Technical writing, Doxygen | Medium |
 | [Reference Manual Documentation](#Reference-Manual-Documentation) | Technical writing, Doxygen, Sphinx | Low |
 | [Benchmarks and Performance monitoring](#Benchmarks-and-Performance-monitoring) | C++, Benchmarking | Low |
 | [Compilation time reduction](#Compilation-time-reduction) | C++, C++ compilation, CMake | High |
 | [Improving confidence in builds](#Improving-confidence-in-builds) | Bash, Static Analyzers | Low |
 | [Make a better CMake](#Make-a-better-CMake) | CMake | Medium |
+| [Refactoring and Modernization](#Refactoring-and-Modernization) | C++ | Low |
+| [Binding interfaces for other languages](#Binding-interfaces) | C++, libtooling, pybind/cython,etc. | High |
+| [Unified API for PCL algorithms](#Unified-API-for-PCL-algorithms) | C++ | Medium-High |
 
-## 2020 Idea List
 ### Project Maintenance (`proj`)
 As the community grows, soft-skills and community outreach become more important. With the change in community, it has become important to update the overlooked facet of PCL and make it more accessible to the community
 #### Update outdated Website
@@ -36,7 +39,8 @@ As the community grows, soft-skills and community outreach become more important
   * (Stretch goal) Migrate all content from existing website, including 
     * ability to create blog posts (using Jekyll or similar)
     * lost content (from internet archives)
-#### Walk through documentation (Tutorials, Guides and Examples)
+#### Walk through documentation
+Includes Tutorials, Guides and Examples
   * Update to reflect forward movement in PCL
   * Merge with auto-gen API documentation to make a single website
   * Detect and increase coverage
@@ -77,7 +81,8 @@ Old API designs result in greater friction between how developers prefer to use 
 
 ### New features (`new`)
 PCL is missing a lot of state-of-the-art implementations. Suggestions/implementations of such algorithms are highly welcome since highly performant, cutting edge algorithms are a core component of PCL. Apart from them, the following features are also on the wish-list of PCL:
-#### Binding interface for (Python, Matlab/Octave, C) (1 project per wrapping isn't worth 3 months)
+#### Binding interfaces
+Wrappers for (Python, Matlab/Octave, C) (1 project per wrapping isn't worth 3 months)
   * Needs auto-discovery (like [binder](https://github.com/RosettaCommons/binder))
     * Reduce drift between core code and bindings
     * Reduce maintenance burden
@@ -86,15 +91,16 @@ PCL is missing a lot of state-of-the-art implementations. Suggestions/implementa
     * [pcl-py](https://github.com/strawlab/python-pcl)
     * [pypcl](https://github.com/davidcaron/pclpy)
   * (Stretch goal) Support different PCL releases and Language versions
-#### [Unified API for PCL algorithms](https://github.com/PointCloudLibrary/pcl/wiki/PCL-RFC-0003:-Unified-API-for-Algorithms)
+#### Unified API for PCL algorithms
+Please find a detailed document [here](https://github.com/PointCloudLibrary/pcl/wiki/PCL-RFC-0003:-Unified-API-for-Algorithms)
 
 ## Contact
 Please read [the relevant official guides](https://developers.google.com/open-source/gsoc/resources/guide) to ease your journey.
 
 For interested students:
 * Please announce yourself and your interest in PCL at the [gitter chat](https://gitter.im/PointCloudLibrary/pcl) 
-* Please have a draft proposal as a git-repo/google doc to facilitate discussion
-* As per your interest, you'd be assigned a small task to evaluate your skills
+* Please have a draft proposal ready in the format of a git-repo/google doc to facilitate discussion
+* As per your interest, you would be assigned a small task to evaluate your skills
 
 For those interested in becoming mentors:
 * Please note that mentoring and co-mentoring can take a lot of effort from your side (from 10 hours a week or 1 hour a week depending on the project, the student, the problems, etc.)
@@ -112,7 +118,7 @@ Alphabetical list of mentors
 If any of the following ideas are not implemented, please notify [kunaltyagi](https://github.com/kunaltyagi) on Gitter using [PM](https://gitter.im/kunaltyagi) or [PCL chatroom](https://gitter.im/PointCloudLibrary/pcl). They will be added to the ideas list.
 * [Discussion on Ideas for GSoC 2011](http://www.pcl-developers.org/two-more-projects-for-GSOC-tt4645184.html#none)
 * [Ideas page for GSoC 2011](https://web.archive.org/web/20130314145536/http://www.pointclouds.org:80/gsoc2011/ideas.html)
-* [Ideas page for GSoC 2014](http://www.pointclouds.org/gsoc/)
+<!-- * [Ideas page for GSoC 2014](http://www.pointclouds.org/gsoc/) State of the art is Deep Learning -->
 ### Project Pages
 If any of the following projects are not integrated in PCL, please notify [kunaltyagi](https://github.com/kunaltyagi) on Gitter using [PM](https://gitter.im/kunaltyagi) or [PCL chatroom](https://gitter.im/PointCloudLibrary/pcl). They will be slated for review and addition in PCL-core (if maintainers are found) or PCL contrib (like opencv-contrib) (if there is a lack of maintainers)
 * [GSoC 2011](http://www.pointclouds.org/blog/gsoc/)
