@@ -28,6 +28,11 @@
   * Integrate `clang-tidy`, static-analyzers
   * Increasing test coverage
   * ABI/API breakage monitoring for PR
+* Make a better CMake
+  * More DRY, less wizardry
+  * Automatic module discovery
+  * Automatic test discovery (refactoring test code layout is ok)
+  * Out-of-source PCL-contrib super-module similar to OpenCV-contrib
 
 ### Code Maintenance
 * Refactoring and Modernization (underway)
@@ -43,7 +48,6 @@
     * [pcl-py](https://github.com/strawlab/python-pcl)
     * [pypcl](https://github.com/davidcaron/pclpy)
   * (Stretch goal) Support different PCL releases and Language versions
-* ??
 
 ## Resources
 ### Ideas Pages
