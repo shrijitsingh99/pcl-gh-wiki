@@ -100,7 +100,7 @@ Please read [the relevant official guides](https://developers.google.com/open-so
 For interested students:
 * Please announce yourself and your interest in PCL at the [gitter chat](https://gitter.im/PointCloudLibrary/pcl) 
 * Please have a draft proposal ready in the format of a git-repo/google doc to facilitate discussion
-* As per your interest, you would be assigned a small task to evaluate your skills
+* Based on your interests, you will be assigned a small task to evaluate your skills
 
 For those interested in becoming mentors:
 * Please note that mentoring and co-mentoring can take a lot of effort from your side (from 10 hours a week or 1 hour a week depending on the project, the student, the problems, etc.)
