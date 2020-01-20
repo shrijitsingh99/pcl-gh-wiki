@@ -1,7 +1,7 @@
 ## Details
 
 * Title: **PCL-RFC-0001: Merit in Old Ideas**
-* Author: [Kunal Tyagi], [other maintainers](http://pointclouds.org/documentation/advanced/pcl2.php#pcl2)
+* Author: [kunaltyagi], [other maintainers](http://pointclouds.org/documentation/advanced/pcl2.php#pcl2)
 * Gitter room: [PointCloudLibrary/PCL-RFC-01](https://gitter.im/PointCloudLibrary/PCL-RFC-01)
 
 [Kunal Tyagi]: https://github.com/kunaltyagi
