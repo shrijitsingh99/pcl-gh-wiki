@@ -1,12 +1,12 @@
 ## Details
 
-* Author: [Kunal Tyagi]
 * Title: **PCL-RFC-0002: Better type for indices**
+* Author: [kunaltyagi]
 * Gitter room: [PointCloudLibrary/PCL-RFC-02](https://gitter.im/PointCloudLibrary/PCL-RFC-02)
 * Past discussion: [#3351](https://github.com/PointCloudLibrary/pcl/issues/3351)
   * People of Interest: [jasjuang], [aPonza], [taketwo], [SergioRAgostinho]
 
-[Kunal Tyagi]: https://github.com/kunaltyagi
+[kunaltyagi]: https://github.com/kunaltyagi
 [jasjuang]: https://github.com/jasjuang
 [aPonza]: https://github.com/aPonza
 [SergioRAgostinho]: https://github.com/SergioRAgostinho
