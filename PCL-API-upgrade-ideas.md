@@ -87,14 +87,14 @@ Currently, I'm personally involved in upgrading the internals of PCL to use `std
 
 | Proposal | Status | Champion |
 |----|----|----|
-| [Reduce usage of `std::shared_ptr<T>` in the API](Reduce-usage-of-stdshared_ptrT-in-the-API) | ❓ | Community |
-| [Better type for indices](better-type-for-indices) | ❓ | Community and Maintainers |
-| [Combine PointCloud with acceleration data-structures](Combine-PointCloud-with-acceleration-data-structures) | ❓ | Community |
-| [`executors` for One-API-for-Algorithms](executors-for-One-API-for-Algorithms) | ❓ | [Kunal Tyagi] |
+| [Reduce usage of `std::shared_ptr<T>` in the API](#Reduce-usage-of-stdshared_ptrT-in-the-API) | ❓ | Community |
+| [Better type for indices](#better-type-for-indices) | ❓ | Community and Maintainers |
+| [Combine PointCloud with acceleration data-structures](#Combine-PointCloud-with-acceleration-data-structures) | ❓ | Community |
+| [`executors` for One-API-for-Algorithms](#executors-for-One-API-for-Algorithms) | ❓ | [Kunal Tyagi] |
 | [Python API](#python-api) | ❓ | [Kunal Tyagi] |
-| [Some build dependencies](some-build-dependencies) | ❓ | [Kunal Tyagi] |
-| [Fluent style API for algorithms](Fluent-style-API-for-algorithms) | ❓ | [Kunal Tyagi] |
-| [Ranges and Co-routines for algorithms](Ranges-and-Co-routines-for-algorithms) | ❓ | [Kunal Tyagi] |
+| [Some build dependencies](#some-build-dependencies) | ❓ | [Kunal Tyagi] |
+| [Fluent style API for algorithms](#Fluent-style-API-for-algorithms) | ❓ | [Kunal Tyagi] |
+| [Ranges and Co-routines for algorithms](#Ranges-and-Co-routines-for-algorithms) | ❓ | [Kunal Tyagi] |
 | Using power of ADL | ❓ | [Kunal Tyagi] |
 
 # Proposal Details
