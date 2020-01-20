@@ -9,7 +9,8 @@ PCL returns to GSoC after a long hiatus. This year, PCL is looking for contribut
 * CI/CD experts
 * polyglots
 * wizards
-and everywhere in between
+
+and everyone else in between.
 
 ### Project Maintenance
 As the community grows, soft-skills and community outreach become more important. With the change in community, it has become important to update the overlooked facet of PCL and make it more accessible to the community
