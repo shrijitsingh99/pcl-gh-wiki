@@ -15,18 +15,19 @@
 ## Motivation
 Currently, there's mixed use of `int`, `long`, `unsigned int`, `unsigned long`, `unsigned long long` and `std::size_t` for indices. Some effort has been made to unify towards `std::size_t` to reduce the limit of 2 billions points due to `int`.
 
+Using `pcl::index_t` as a compile time configurable alias (default: `std::intN_t` or `std::ptrdiff_t`) would make PCL algorithms work with point clouds of any size.
+
 ## Pros
-* Follows a best practice
-* Allows operations on actually limitless points (if using 64 bit systems)
+* Follows a best practice (as defined in the (Guideline Support Library aka [GSL](https://github.com/microsoft/GSL/))
+* Potentially allows operations on actually limitless points (if using 64 bit systems)
+* Allow the user to choose a custom/larger platform independent/dependent index size
 
 ## Cons
-* One of the following complication if using `GSL`
+* One of the following complication of using `GSL`
   * Extra build-time dependency on internet
   * Copy-pasted source file
   * `git` sub-tree/sub-module
-* A new typedef `using pcl::index_t = std::ptrdiff_t;`
-* Not platform independent
-* Wastes memory: Largest RAM supported is ~32TB (2^48). That's a clear 25% loss of efficiency for extreme cases, and larger for average use-case.
+* Wastes memory: Largest RAM supported is ~32TB (2^48). That's a clear 25% loss of efficiency for extreme cases, and larger for average use-case. Though this is negated by the explicit choice made by user before compilation.
 
 ## ABI/API Breakage
 * None for existing internal migration
@@ -42,6 +43,3 @@ Multi-step migration:
 1. Replace `std::vector<int>` with `IndicesVec`
 2. Replace `std::size_t` with `pcl::index_t`
 3. Replace `IndicesVec = std::vector<int>` with `IndicesVec = std::vector<pcl::index_t>`
-
-## Question
-Is there anyone who has been adversely impacted with size increase and cache misses due to `std::size_t` instead of `int`? If so, there might be merit in discussing alternatives to `std::ptrdiff_t` (such as `std::int32_t` instead, which is the same but platform independent and brings back performance)
