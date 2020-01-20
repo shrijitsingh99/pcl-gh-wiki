@@ -118,7 +118,9 @@ optional arguments:
 ## Mac OSX
 Ship only modules enabled by default. Assume only the following optionals: existence of VTK and OpenGL support
 
-* Go to CMakeLists.txt and comment out all section regarding RPATH setup (we should allow this to be specified with CMAKE).
+* Go to CMakeLists.txt and comment out
+  * all section regarding RPATH setup (we should allow this to be specified with CMAKE)
+  * `find_package (OpenMP)`
 * Configure
 ```shell
 $ cmake .. -DCPACK_GENERATOR="TBZ2" \
