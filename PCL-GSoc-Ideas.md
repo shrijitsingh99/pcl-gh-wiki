@@ -9,7 +9,7 @@
   * Merge with documentation to make a single website
 * Documentation
   * Improve documentation coverage
-  * Migrate to sphinx
+  * Migrate front-end to sphinx
   * (Stretch goal) Add CI test for missing documentation in "new code"
 
 ### Quality of Life
@@ -27,13 +27,23 @@
   * More warnings and sanitizers for CI
   * Integrate `clang-tidy`, static-analyzers
   * Increasing test coverage
+  * ABI/API breakage monitoring for PR
 
 ### Code Maintenance
 * Refactoring and Modernization (underway)
   * Expand ideas here
 
 ### New ideas
-??
+* Binding interface for (Python, Matlab/Octave, C) (1 project per wrapping isn't worth 3 months)
+  * Needs auto-discovery (like [binder](https://github.com/RosettaCommons/binder))
+    * Reduce drift between core code and bindings
+    * Reduce maintenance burden
+  * Tests
+  * Existing wrappers for Python for inspiration
+    * [pcl-py](https://github.com/strawlab/python-pcl)
+    * [pypcl](https://github.com/davidcaron/pclpy)
+  * (Stretch goal) Support different PCL releases and Language versions
+* ??
 
 ## Resources
 ### Ideas Pages
