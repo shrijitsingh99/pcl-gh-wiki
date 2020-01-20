@@ -1,6 +1,7 @@
 ## Details
 
 * Title: **PCL-RFC-0000: Evolving PCL**
+* Gitter room: [PointCloudLibrary/PCL-RFC-00](https://gitter.im/PointCloudLibrary/PCL-RFC-00)
 
 ## Introduction
 PCL 1.10 is about to be released, and has a massive changelog. With new patches coming in, there have been requests to upgrade PCL's API to make it more developer friendly.
