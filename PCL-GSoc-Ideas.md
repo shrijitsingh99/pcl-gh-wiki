@@ -15,12 +15,12 @@ and everything else in between.
 ## 2020 Idea List
 
 ### Table of Contents
-| Name | Skills needed | Technical Difficulty |
+| Name | Skills needed | Difficulty |
 |---|---|---| 
 | [Update outdated Website](#Update-outdated-Website) | JS, CSS, Jekyll | Medium |
 | [Walk through documentation](#Walk-through-documentation) | Technical writing, Doxygen | Medium |
 | [Reference Manual Documentation](#Reference-Manual-Documentation) | Technical writing, Doxygen, Sphinx | Low |
-| [Benchmarks and Performance monitoring](#Benchmarks-and-Performance-monitoring) | C++, Benchmarking | Low |
+| [Benchmarks and Performance monitoring](#Benchmarks-and-Performance-monitoring) | C++, Benchmarking | Medium-Low |
 | [Compilation time reduction](#Compilation-time-reduction) | C++, C++ compilation, CMake | High |
 | [Improving confidence in builds](#Improving-confidence-in-builds) | Bash, Static Analyzers | Low |
 | [Make a better CMake](#Make-a-better-CMake) | CMake | Medium |
