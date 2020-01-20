@@ -23,7 +23,7 @@ Using `pcl::index_t` as a compile time configurable alias (default: `std::intN_t
 * Allow the user to choose a custom/larger platform independent/dependent index size
 
 ## Cons
-* One of the following complication of using `GSL`
+* One of the following complication (if we use use `GSL`'s `index_t`):
   * Extra build-time dependency on internet
   * Copy-pasted source file
   * `git` sub-tree/sub-module
