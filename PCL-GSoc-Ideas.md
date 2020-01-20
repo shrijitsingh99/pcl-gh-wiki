@@ -1,18 +1,38 @@
 # Ideas for GSoC
-
-## Idea List
+ 
+## 2020 Idea List
+PCL returns to GSoC after a long hiatus. This year, PCL is looking for contributions and active community members from all corners of the coding community:
+* technical writers
+* designers
+* web developers
+* C++ developers
+* CI/CD experts
+* polyglots
+* wizards
+and everywhere in between
 
 ### Project Maintenance
-* Website
-* Tutorials
+As the community grows, soft-skills and community outreach become more important. With the change in community, it has become important to update the overlooked facet of PCL and make it more accessible to the community
+* Update outdated Website
+  * Create a static website on Github pages or similar
+  * Provide a basic replacement including:
+    * documentation for past releases
+    * prevent invalidation of links as much as possible, while updating the content
+  * Make it the new home for `pointclouds.org` with HTTPS support
+  * (Stretch goal) Migrate all content from existing website, including 
+    * ability to create blog posts (using Jekyll or similar)
+    * lost content (from internet archives)
+* Walk through documentation (Tutorials, Guides and Examples)
   * Update to reflect forward movement in PCL
-  * Merge with documentation to make a single website
-* Documentation
+  * Merge with auto-gen API documentation to make a single website
+  * Detect and increase coverage
+* Reference Manual Documentation
   * Improve documentation coverage
   * Migrate front-end to sphinx
   * (Stretch goal) Add CI test for missing documentation in "new code"
 
 ### Quality of Life
+As PCL has matured, it has discovered missing features: features that are more than just the core code, features that are vital for delivering continuous improvements. We look forwards for the ideas/projects with a minor or negligible addition of "code features" as output. Some of the wish-list features are:
 * Benchmarks and Performance monitoring
   * Nightly CI jobs to measure performance on `master`
   * (Stretch goal) Incremental bench-marking on PR
@@ -38,7 +58,8 @@
 * Refactoring and Modernization (underway)
   * Expand ideas here
 
-### New ideas
+### New features
+PCL is missing a lot of state-of-the-art implementations. Suggestions/implementations of such algorithms are highly welcome since highly performant, cutting edge algorithms are a core component of PCL. Apart from them, the following features are also on the wish-list of PCL:
 * Binding interface for (Python, Matlab/Octave, C) (1 project per wrapping isn't worth 3 months)
   * Needs auto-discovery (like [binder](https://github.com/RosettaCommons/binder))
     * Reduce drift between core code and bindings
