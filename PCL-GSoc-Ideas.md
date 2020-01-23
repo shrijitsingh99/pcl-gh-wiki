@@ -40,13 +40,14 @@ As the community grows, soft-skills and community outreach become more important
     * ability to create blog posts (using Jekyll or similar)
     * lost content (from internet archives)
 #### Walk through documentation
-Includes Tutorials, Guides and Examples
+[Summer of Docs focus] Includes Tutorials, Guides and Examples
   * Update to reflect forward movement in PCL
-  * Merge with auto-gen API documentation to make a single website
   * Detect and increase coverage
 #### Reference Manual Documentation
-  * Improve documentation coverage
+  * [Summer of Docs focus] Improve documentation coverage
   * Migrate front-end to sphinx
+  * Generate and host all documentation on Github
+  * Integrate search + landing page with Tutorials and Walk-through
   * (Stretch goal) Add CI test for missing documentation in "new code"
 
 ### Quality of Life (`QoL`)
