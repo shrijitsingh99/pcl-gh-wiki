@@ -58,9 +58,11 @@ As PCL has matured, it has discovered missing features: features that are more t
 #### Compilation time reduction
   * Refactoring/CMake changes/Sub-Modules to reduce compilation time
   * 100% reproducible incremental builds (with a constant config)
-  * (Stretch goal) Compile time reduction on CI using
+  * (Stretch goal) Compile time reduction on CI using ([reading resource](https://onqtam.com/programming/2019-12-20-pch-unity-cmake-3-16/))
     * incremental builds
     * compiler caches
+    * PCH
+    * Unity builds
 #### Improving confidence in builds
   * Incremental builds on CI
   * More warnings and sanitizers for CI
