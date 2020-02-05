@@ -8,7 +8,6 @@ PCL returns to GSoC after a long hiatus. This year, PCL is looking for contribut
 * CI/CD experts
 * polyglots
 * wizards
-* mentors
 
 and everything else in between.
 
