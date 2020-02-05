@@ -115,6 +115,7 @@ For those interested in becoming mentors:
 Alphabetical list of mentors
 * kunaltyagi
 * taketwo
+* SergioRAgostinho 
 
 ## Resources
 ### Ideas Pages
