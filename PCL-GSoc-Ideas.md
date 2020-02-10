@@ -35,6 +35,7 @@ As the community grows, soft-skills and community outreach become more important
     * documentation for past releases
     * prevent invalidation of links as much as possible, while updating the content
   * Make it the new home for `pointclouds.org` with HTTPS support
+  * Integrate versioned (documentation+tutorials) to make it the go-to resource for PCL
   * (Stretch goal) Migrate all content from existing website, including 
     * ability to create blog posts (using Jekyll or similar)
     * lost content (from internet archives)
