@@ -28,6 +28,7 @@ Using `pcl::index_t` as a compile time configurable alias (default: `std::intN_t
     #endif
     ```
 * Maybe allow the user to choose smaller indices (32k for int16) by using `PCL_INDEX_SIZE` variable as the length (8, 16, 32, 64, etc.) Don't know if anyone ever desires this, but it's an easy extension.
+* Maybe allow the user to choose signed/unsigned indices (double the amount, eg: 64k, 4.2 million) without needing larger datatype
 
 ## Pros
 * Follows a best practice (as defined in the (Guideline Support Library aka [GSL](https://github.com/microsoft/GSL/))
