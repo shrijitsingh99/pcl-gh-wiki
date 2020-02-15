@@ -17,13 +17,25 @@ Currently, there's mixed use of `int`, `long`, `unsigned int`, `unsigned long`, 
 
 Using `pcl::index_t` as a compile time configurable alias (default: `std::intN_t` or `std::ptrdiff_t`) would make PCL algorithms work with point clouds of any size.
 
+## Implementation Details
+* Create a compile time option: `PCL_LARGE_INDICES`
+* Conditionally choose between small or large indices:
+    ```cpp
+    #ifdef PCL_LARGE_INDICES
+    using index_t = std::ptrdiff_t;
+    #else
+    using index_t = std::int32_t;
+    #endif
+    ```
+* Maybe allow the user to choose smaller indices (32k for int16) by using `PCL_INDEX_SIZE` variable as the length (8, 16, 32, 64, etc.) Don't know if anyone ever desires this, but it's an easy extension.
+
 ## Pros
 * Follows a best practice (as defined in the (Guideline Support Library aka [GSL](https://github.com/microsoft/GSL/))
 * Potentially allows operations on actually limitless points (if using 64 bit systems)
 * Allow the user to choose a custom/larger platform independent/dependent index size
 
 ## Cons
-* One of the following complication (if we use use `GSL`'s `index_t`):
+* One of the following complication (IFF we use use `GSL`'s `index_t`):
   * Extra build-time dependency on internet
   * Copy-pasted source file
   * `git` sub-tree/sub-module
