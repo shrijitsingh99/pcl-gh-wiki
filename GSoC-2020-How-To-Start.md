@@ -13,7 +13,7 @@ PCL's website is composed of 5 elements: main page, tutorials (basic and advance
 
 The majority of the website's content comes from [here](https://github.com/PointCloudLibrary/pcl/tree/master/doc) (basic and advanced tutorials, and the API reference) and [here](https://github.com/PointCloudLibrary/blog) (blog) and there are still some pages which are only accessible on the server at pointclouds.org and need to be manually edited by a restricted set of users.
 
-The current maintainer group identified that we need a solution that is as maintenance free as possible and that allows the developer community to be fully focused on maintaining its content, in a streamlined and easy way. Solutions of this nature are provided by third-party services and a number of our users pointed us to https://readthedocs.org/ (RTD), as a viable mechanism to want we want to achieve.
+The current maintainer group identified that we need a solution that is as maintenance free as possible and that allows the developer community to be fully focused on maintaining its content, in a streamlined and easy way. Solutions of this nature are provided by third-party services and a number of our users pointed us to https://readthedocs.org/ (RTD), as a viable mechanism to what we want to achieve.
 
 Please note that this migration and update process is more of a DevOps type of task than a Web Development one, at least at this stage. While having a custom style and identity for the new website is desired by all, it's not really something we are concerned at this point. The only focus now is to get essential the functionalities up and running.
 
