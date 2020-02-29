@@ -70,8 +70,8 @@ From this point onward, the user will pick whatever functionality he/she require
 
 * Revisit and try the current existing tutorials. Do they make sense? Is there something not working or simply out of place?
 
-As you go through all of these items you will surely encounter situations that require changes because they outdated or simply don't produce the expected results. Start going through those and submitting pull requests with proposed changes.
+As you go through all of these items you will surely encounter situations that require changes because they are non-existent, incomplete, unclear, outdated or simply don't produce the expected results. Start going through those and submitting pull requests with proposed changes.
 
-Whenever in doubt open an issue in the issue tracker and present your case. Expose the problem in a detailed way and ask around for feedback. Remember to be specific about your questions and show us you that you understand what the problem is. If possible always try to present one solution to the problem. The maintainers can always point you in the right direction but ultimately you're the one who will know the problem in depth and can validate if the suggested changes produce the desired outcome.
+Whenever in doubt open an issue in the issue tracker and present your case. Expose the problem in a detailed way and ask around for feedback. Remember to be specific about your questions and show us you that you understand what the problem is. If possible, always try to present one solution to the problem. The maintainers can always point you in the right direction but ultimately you're the one who will know the problem in depth and can validate if the suggested changes produce the desired outcome.
 
 Author: [@SergioRAgostinho](https://github.com/SergioRAgostinho)
