@@ -1,4 +1,4 @@
-This page intends to answer the most common question currently on our Gitter channel - "How should I start working on a particular idea?". Hopefully we will provide entry points and context for the most current most popular ones.
+This page intends to answer the most common question currently on our Gitter channel - "How should I start working on a particular idea?". Hopefully we will provide entry points and context for the most popular ones.
 
 ## Table of Contents
 | Name | Skills needed | Difficulty |
@@ -24,7 +24,7 @@ Please note that this migration and update process is more of a DevOps type of t
 * Provide a basic replacement including:
   * documentation for past releases - *RTD provides this functionality*
   * prevent invalidation of links as much as possible, while updating the content - *use some scripting language (Python preferred) to crawl for urls and test them*.
-* Make it the new home for `pointclouds.org` with HTTPS support - *HTTPS support requires acquiring certificates, so I'm not sure how realistic this is at this point*.
+* Make it the new home for `pointclouds.org` with HTTPS support - *HTTPS support requires acquiring certificates, so I'm not sure how realistic this is at this point but I was told RTD partnered with CloudFlare and they're supplying those free of charge.*
 * Integrate versioned (documentation+tutorials) to make it the go-to resource for PCL - *RTD*
 * (Stretch goal) Migrate all content from existing website, including 
   * ability to create blog posts (using Jekyll or similar)
@@ -45,7 +45,7 @@ At this point you're already in a pretty good spot :)
 
 Every piece of code evolves over time. Documentation is written at a particular point in time and as the underlying code evolves, sooner or later some documentation will become outdated and no longer be applicable or simply not represent the current "best practices". Keeping documentation up-to-date ensures a positive experience for the library's users and good quality documentation frees contributors to spend time on improving on the actual code itself. 
 
-Handling requires some prior knowledge of how the library evolved and what are the current considered best practices e.g.: using PCL in consumer projects. The mentors will need to actively intervene here to ensure the current best practices are followed.
+Unfortunately, handling this task requires some prior knowledge of how the library evolved and what are the current best practices e.g.: how to use PCL in consumer projects. The mentors will need to actively intervene here to ensure best practices are followed.
 
 ### Goals
 [Summer of Docs focus] Includes Tutorials, Guides and Examples
@@ -70,5 +70,8 @@ From this point onward, the user will pick whatever functionality he/she require
 
 * Revisit and try the current existing tutorials. Do they make sense? Is there something not working or simply out of place?
 
+As you go through all of these items you will surely encounter situations that require changes because they outdated or simply don't produce the expected results. Start going through those and submitting pull requests with proposed changes.
+
+Whenever in doubt open an issue in the issue tracker and present your case. Expose the problem in a detailed way and ask around for feedback. Remember to be specific about your questions and show us you that you understand what the problem is. If possible always try to present one solution to the problem. The maintainers can always point you in the right direction but ultimately you're the one who will know the problem in depth and can validate if the suggested changes produce the desired outcome.
 
 Author: [@SergioRAgostinho](https://github.com/SergioRAgostinho)
