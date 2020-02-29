@@ -43,11 +43,9 @@ At this point you're already in a pretty good spot :)
 
 ### Context
 
-Every piece of code evolves over time. Documentation is written at a particular point in time and as the underlying code evolves, sooner or later some documentation will become outdated and no longer be applicable or simply not represent the current "best practices". Keeping documentation up-to-date ensures a positive experience for the library's users and good quality documentation frees contributors to spend time on improving on the actual code itself. As a new user, the first 
+Every piece of code evolves over time. Documentation is written at a particular point in time and as the underlying code evolves, sooner or later some documentation will become outdated and no longer be applicable or simply not represent the current "best practices". Keeping documentation up-to-date ensures a positive experience for the library's users and good quality documentation frees contributors to spend time on improving on the actual code itself. 
 
-This task presents a three-fold challenge
-
-On one hand it requires some prior knowledge of how the library evolved and what are the current considered best practices e.g.: using PCL in consumer projects. The mentors will need to actively intervene here to ensure the current best practices are followed.
+Handling requires some prior knowledge of how the library evolved and what are the current considered best practices e.g.: using PCL in consumer projects. The mentors will need to actively intervene here to ensure the current best practices are followed.
 
 ### Goals
 [Summer of Docs focus] Includes Tutorials, Guides and Examples
@@ -58,6 +56,19 @@ On one hand it requires some prior knowledge of how the library evolved and what
 
 Place yourself in the role of a potential new user of the library. What are the questions a new user will ask?
 
-1. 
+1. What sort of functionalities does this library provide?
+2. How is the library organized and what's the role of each module/part/section?
+
+Answering these questions will allow a user to decide if the library fulfills his/her needs. What's the next step?
+
+1. How do I install this project on my machine?
+  - Are there package distributions for my platform?
+  - How do I compile it from source?
+2. How to I incorporate PCL in my project? What's the bare minimum boiler plate code which allows the user to confirm that everything is working correctly?
+
+From this point onward, the user will pick whatever functionality he/she requires and follow the corresponding tutorials to get things done.
+
+* Revisit and try the current existing tutorials. Do they make sense? Is there something not working or simply out of place?
+
 
 Author: [@SergioRAgostinho](https://github.com/SergioRAgostinho)
