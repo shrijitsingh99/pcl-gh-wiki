@@ -16,7 +16,7 @@ and everything else in between.
 ### Table of Contents
 | Name | Skills needed | Difficulty |
 |---|---|---| 
-| [Update outdated Website](#Update-outdated-Website) | JS, CSS, Jekyll | Medium |
+| [Update outdated Website](#Update-outdated-Website) | RST, Sphinx, Doxygen, Python 	 | Medium |
 | [Walk through documentation](#Walk-through-documentation) | Technical writing, Doxygen | Medium |
 | [Reference Manual Documentation](#Reference-Manual-Documentation) | Technical writing, Doxygen, Sphinx | Low |
 | [Benchmarks and Performance monitoring](#Benchmarks-and-Performance-monitoring) | C++, Benchmarking | Medium-Low |
