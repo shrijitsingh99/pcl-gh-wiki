@@ -5,6 +5,7 @@
 * Gitter room: [PointCloudLibrary/PCL-RFC-02](https://gitter.im/PointCloudLibrary/PCL-RFC-02)
 * Past discussion: [#3351](https://github.com/PointCloudLibrary/pcl/issues/3351)
   * People of Interest: [jasjuang], [aPonza], [taketwo], [SergioRAgostinho]
+* Status: Work-in-progress
 
 [kunaltyagi]: https://github.com/kunaltyagi
 [jasjuang]: https://github.com/jasjuang
