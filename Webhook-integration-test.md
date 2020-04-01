@@ -1,1 +1,1 @@
-Hello world. Trigger
+Hello world. Trigger. Trigger again.
