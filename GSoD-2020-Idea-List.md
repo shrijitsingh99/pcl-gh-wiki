@@ -66,7 +66,7 @@ Answering these questions will allow a user to decide if the library fulfills hi
 1. How do I install this project on my machine?
   - Are there package distributions for my platform?
   - How do I compile it from source?
-2. How to I incorporate PCL in my project? What's the bare minimum boiler plate code which allows the user to confirm that everything is working correctly?
+2. How do I incorporate PCL in my project? What's the bare minimum boiler plate code which allows the user to confirm that everything is working correctly?
 
 From this point onward, the user will pick whatever functionality he/she requires and follow the corresponding tutorials to get things done.
 
