@@ -1,4 +1,6 @@
-This page intends to answer the most common question currently on our Gitter channel - "How should I start working on a particular idea?". Hopefully we will provide entry points and context for the most popular ones.
+ PCL is looking for contributions and active community members from all corners of the coding community in the roles of:
+* technical writers;
+* devops
 
 ## Table of Contents
 | Name | Skills needed | Difficulty |
