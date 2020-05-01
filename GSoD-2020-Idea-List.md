@@ -50,7 +50,7 @@ Every piece of code evolves over time. Documentation is written at a particular 
 Unfortunately, handling this task requires some prior knowledge of how the library evolved and what are the current best practices e.g.: how to use PCL in consumer projects. The mentors will need to actively intervene here to ensure best practices are followed.
 
 ### Goals
-[Summer of Docs focus] Includes Tutorials, Guides and Examples
+Includes Tutorials, Guides and Examples
   * Update to reflect forward movement in PCL
   * Detect and increase coverage
 
