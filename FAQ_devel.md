@@ -33,11 +33,23 @@ A : Using pcl::PointCloud instead of PointCloud solved the problem for me.
 
 ## Current:
 
-!pcl_dependency_graph.png!
-The above graph was generated via:
-```
-cd build && convert pcl.dot pcl_dependency_graph.png
-```
+* Dependency graph generation requires a dot file generated while building the project with CMake:
+  ```
+  mkdir build && cd build && cmake {pcl_source_path}
+  ```
+  For more information, see [Compiling](https://github.com/PointCloudLibrary/pcl#compiling)
+
+* PCL's dependency graph can be generated via:
+  ```
+  cd build && convert pcl.dot pcl_dependency_graph.png
+  ```
+  ![Dependency Graph](images/pcl_dependency_graph.png)
+
+* To generate one without the transitive dependencies, for a cleaner output, use:
+  ```
+  cd build && tred pcl.dot | dot -T png > pcl_dependency_graph_nontransitive.png
+  ```
+  ![Dependency Graph non-transitive](images/pcl_dependency_graph_nontransitive.png)
 
 ## Writing PCL exceptions
 
