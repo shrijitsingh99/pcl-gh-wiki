@@ -2,117 +2,90 @@
 
 - [Task list](#task-list)
 - [Creating the Change Log](#creating-the-change-log)
+- [Running the release pipeline](#running-the-release-pipeline)
 - [Shipping Binaries](#shipping-binaries)
 - [Generating Documentation](#generating-documentation)
 
 # Task list
 - [ ] Go through all PR for the milestone
-- [ ] Update Changelog
-- [ ] Start a release branch
+- [ ] Create a pre-release via the release pipeline
 - [ ] (If needed) Revert whatever unintentional API/ABI breakage that might have occurred in the release branch
-- [ ] Bump version to x.x.x in CMakeLists.txt
-- [ ] Find replace all occurrences of x.x.x.99 CMake requirements in the tutorials and examples
-- [ ] Try to build and test on all relevant platforms
-- [ ] Bump version off the release badge in README.md
-- [ ] Finalize changelog and fix the release date
-- [ ] Tag
-- [ ] Remove the release branch
-- [ ] Add binaries to the GitHub release page
-- [ ] Send a PR to vcpkg to update package to the new version
-- [ ] Add doc link to tutorials page
-- [ ] Bump version to x.x.x-dev in CMakeLists.txt
-- [ ] Send announcements to the mailing lists
+- [ ] Once pre-release has fixed all issues, get ready for a release
+- [ ] Update Changelog
+- [ ] Bump version via `.dev/scripts/bump_release.bash X.Y.Z`
+- [ ] Commit, push, merge and run the release pipeline again
+- [ ] Send announcements to the community forums
+- [ ] Fetch all tags from PCL's repository
+- [ ] Run `.dev/scripts/bump_post_release` to bump version again
+- [ ] Commit, push and merge
 - [ ] Throw a party!
 
 # Creating the Change Log
 
-Change log generation used to be a very tedious tasks which often delayed the release process. Upon preparing the 1.9.0 release, we identified the need to automate this procedure and the `change_log.py` tool was born. This is a tool compatible with Python 3.5+ which generates a markdown Change Log between two revisions.
+`.dev/scripts/generate_changelog.py` is a Python3 script which generates a markdown Change Log between the last released version and the current commit.
 
 The generated log lists the most important changes first, like new features and API changes among others, and then proceeds to provide an extensive change list for each individual module.
 
-In order to generate a meaningful change log, we make use of Pull Requests' (PR) metadata such as id, title and labels. This cleared the need for generating a manual change log at the expense of a higher house keeping effort, since we now need to ensure that each PR has accurate labels. There are two important label groups with the following prefixes: `module: ` and `changes: `.
+In order to generate a meaningful change log, we make use of Pull Requests' (PR) metadata such as id, title and labels. There are two important label groups with the following prefixes: `module: ` and `changelog: `.
 
 - `module: ` Module tags provide an organization of PRs in terms of the libraries modules. We also include some extra labels which are not exactly library modules per se, for instance things related to CI and CMake, but that are convenient to appear in their own section in the produced log.
-- `changes: ` Changes tags are used to flag important API/ABI/behavior changes introduced by PRs.
+- `changelog: ` Changes tags are used to flag important API/ABI/behavior changes introduced by PRs.
 
-It's also important to mention the `new feature` label, which arguably should belong to be also prefixed with `changes: ` but currently isn't. Regardless of that, the label is also parsed and new features are reported in the important changes summary.
+It's also important to mention the `new feature` label which is used to highlight new features at the top of the summary.
 
-There's currently no support for the `platform: ` prefix in labels, although it will be extended in the future if the need for it arises.
+There's currently no support for the `platform: ` prefix in labels, although it could be extended in the future if the need for it arises.
 
 ## Dependencies
 
-The tool has a two 3rd party dependencies:
-- `git` - it leverages `git log` functionalities to infer pull requests merges between both revisions
-- `requests`- a Python library which simplifies handling authenticated requests to fetch PR data from GitHub's API. Available through PyPi. [Website](http://docs.python-requests.org/en/master/).
+The tool has a few 3rd party dependencies:
+- `argparse` - a Python library which simplifies handling flags from CLI, available through PyPi.
+- `requests`- a Python library which simplifies handling authenticated requests to fetch PR data from GitHub's API, available through PyPi. [Website](http://docs.python-requests.org/en/master/).
 
 ## Usage
 
-### Simple
-
-The most simple way of using the tool is simply invoking
 ```
-$ python3 change_log.py pcl-1.8.1 pcl-1.9.0
-```
-This will generate a list with all PRs included in `pcl-1.9.0`, which were not part of `pcl-1.8.1`, effectively creating a change log between both revisions.
+# Most important changes
+$ .dev/scripts/generate_change.py
 
-The last argument is actually optional. If no end revision is specified the tool will silently default to the repo's `HEAD`.
+# All changes
+$ .dev/scripts/generate_change.py --with-misc
+```
 
 ### Authenticated Request
 
-`change_log.py` leverages the capabilities of the [GitHub REST API](https://developer.github.com/v3/) to fetch all necessary PR information. The API is free to use but imposes a hourly request rate limit for anonymous requests. This limit is too low to allow fetching the usual amount of data required when generating a change log between contiguous PCL releases. Performing user authenticated requests raises this limit but requires a GitHub account. Unless the amount of changes is small, it is likely that the authentication will always be required in order to fetch all necessary data in a single execution of the tool.
+The script leverages the capabilities of the [GitHub REST API](https://developer.github.com/v3/) to fetch all necessary PR information. The API is free to use but imposes a hourly request rate limit for anonymous requests. This limit is too low to allow fetching the usual amount of data required when generating a change log between contiguous PCL releases. Performing user authenticated requests raises this limit but requires a GitHub account.
 
-To execute `change_log.py` with GitHub authentication pass the additional argument `--username`
-```
-$ python3 change_log.py --username PointCloudLibrary pcl-1.8.1 pcl-1.9.0
-Password for PointCloudLibrary: 
-```
-The script will securely prompt for your GitHub password in order to perform the requests. 
+To use the GitHub authentication, the facility needs to be added to the script
 
 ### Caching PR Data
 
-Fetching PR data from GitHub is not exactly slow but also not exactly fast. In conjunction with the request rate restrictions, it made it worthwhile to cache the PR data fetched into a file. This is arguably only relevant for development purposes. Specifying the option `--cache` makes the script serialize all the data to a JSON file.
+Fetching PR data from GitHub is not exactly slow but also not exactly fast. In conjunction with the request rate restrictions, it made it worthwhile to cache the PR data fetched into a file. This is arguably only relevant for development purposes. Specifying the option `--cache` makes the script serialize all the data to a JSON file. If the cache is used no request are made to GitHub.
 
 ```
-$ python3 change_log.py --cache pr_info.json  pcl-1.8.1 pcl-1.9.0
+# Save PR data from a file
+$ .dev/scripts/generate_change.py --save FILENAME
 ```
-To later read from the cache file simply pass the following argument `--from-cache` and the location to the file.
+To later read from the cache file simply use:
 ```
-$ python3 change_log.py --from-cache pr_info.json pcl-1.8.1
+# Load PR data from a file
+$ .dev/scripts/generate_change.py --load FILENAME
 ```
-If the cache is used no request are made to GitHub. In theory you wouldn't need to specify `pcl-1.8.1` since the cache already holds the start and end revisions used to generate the cache. Anything you specify on that positional argument will be overridden by whatever was saved in the cache.  Unfortunately I'm yet to find a good way to overcome this limitation.
 
+# Running the Release Pipeline
 
-### Printing Usage
-
-To have access to the full list of options simply invoke 
-
-```
-$ python3 change_log.py -h
-usage: change_log.py [-h] [--username USERNAME] [--cache [FILE] | --from-cache
-                     [FILE]]
-                     start [end]
-
-Generate a change log between two revisions. Check
-https://github.com/PointCloudLibrary/pcl/wiki/Preparing-Releases#creating-the-
-change-log for some additional examples on how to use the tool.
-
-positional arguments:
-  start                The start (exclusive) revision/commit/tag to generate
-                       the log.
-  end                  The end (inclusive) revision/commit/tag to generate the
-                       log. (Defaults to HEAD)
-
-optional arguments:
-  -h, --help           show this help message and exit
-  --username USERNAME  GitHub Account user name. If specified it will perform
-                       requests with the provided credentials. This is often
-                       required in order to overcome GitHub API's request
-                       limits.
-  --cache [FILE]       Caches the PR info extracted from GitHub into a JSON
-                       file. (Defaults to 'pr_info.json')
-  --from-cache [FILE]  Uses a previously generated PR info JSON cache file to
-                       generate the change log. (Defaults to 'pr_info.json')```
-```
+0. You need access to the PointCloudLibrary organization on Azure.
+1. Navigate to the view with all pipelines. [Link](https://dev.azure.com/PointCloudLibrary/pcl/_build?view=folders)
+![All Pipelines](/images/all-pipelines.png)
+2. Find the `Run Pipeline` button for the Release pipeline
+![Top Right Corner](/images/run-release.png)
+3. In the dialog, choose the correct branch/commit to run the pipeline on
+![First Dialog](/images/run-dialog.png)
+4. Set the `RC` (release candidate) and `VERSION` appropriately. `VERSION` should be in semver format, while `RC` should be 0 for a release and non-zero for alpha releases
+![Set variables](/imeages/set-variables.png)
+5. All ready to go. Press `Run` and sit back to get the binaries released. New release will be visible on `https://github.com/PointCloudLibrary/pcl/releases` if you're logged in
+![Just one more step](images/ready-to-run.png)
+6. Complete the draft and publish it
+7. Tag is created automatically for you
 
 # Shipping Binaries
 ## Mac OSX
