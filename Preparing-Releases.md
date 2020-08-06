@@ -75,15 +75,25 @@ $ .dev/scripts/generate_change.py --load FILENAME
 
 0. You need access to the PointCloudLibrary organization on Azure.
 1. Navigate to the view with all pipelines. [Link](https://dev.azure.com/PointCloudLibrary/pcl/_build?view=folders)
-![All Pipelines](/images/all-pipelines.png)
+
+![All Pipelines](images/all-pipelines.png)
+
 2. Find the `Run Pipeline` button for the Release pipeline
-![Top Right Corner](/images/run-release.png)
+
+![Top Right Corner](images/run-release.png)
+
 3. In the dialog, choose the correct branch/commit to run the pipeline on
-![First Dialog](/images/run-dialog.png)
+
+![First Dialog](images/run-dialog.png)
+
 4. Set the `RC` (release candidate) and `VERSION` appropriately. `VERSION` should be in semver format, while `RC` should be 0 for a release and non-zero for alpha releases
-![Set variables](/imeages/set-variables.png)
+
+![Set variables](images/set-variables.png)
+
 5. All ready to go. Press `Run` and sit back to get the binaries released. New release will be visible on `https://github.com/PointCloudLibrary/pcl/releases` if you're logged in
+
 ![Just one more step](images/ready-to-run.png)
+
 6. Complete the draft and publish it
 7. Tag is created automatically for you
 
